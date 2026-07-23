@@ -1,0 +1,52 @@
+{
+  "_comment": "Feeds for scripts/refresh_seminars.py. UCSF's calendar runs on Localist: every group page exposes an iCal feed at <group-url>/calendar.ics (verified 2026-07-22). Program sites on their own domains (bmi, pspg, ccb, tetrad, gladstone, biohub, berkeley) do NOT offer feeds — those live in the TALK_RESOURCES directory in data/content.js instead. 'keywords' filters an unfiltered feed; group feeds are already scoped, so they omit it. 'page' is the human link used when a feed entry has no URL.",
+  "timezone": "America/Los_Angeles",
+  "days_ahead": 60,
+  "max_items": 40,
+  "exclude_keywords": ["canceled", "cancelled"],
+  "sources": [
+    {
+      "name": "UCSF Events Calendar",
+      "type": "ics",
+      "url": "https://calendar.ucsf.edu/calendar.ics",
+      "keywords": ["seminar", "colloquium", "symposium", "journal club"],
+      "page": "https://calendar.ucsf.edu/calendar"
+    },
+    {
+      "name": "Bakar Computational Health Sciences Institute",
+      "type": "ics",
+      "url": "https://calendar.ucsf.edu/group/bakar_computational_health_sciences_institute/calendar.ics",
+      "page": "https://calendar.ucsf.edu/group/bakar_computational_health_sciences_institute"
+    },
+    {
+      "name": "QBI — Quantitative Biosciences Institute",
+      "type": "ics",
+      "url": "https://calendar.ucsf.edu/group/qbi-quantitative-biosciences-institute/calendar.ics",
+      "page": "https://qbi.ucsf.edu/upcoming-events"
+    },
+    {
+      "name": "Epidemiology & Biostatistics",
+      "type": "ics",
+      "url": "https://calendar.ucsf.edu/group/department_of_epidemiology_biostatistics/calendar.ics",
+      "page": "https://epibiostat.ucsf.edu/events"
+    },
+    {
+      "name": "Institute for Human Genetics",
+      "type": "ics",
+      "url": "https://calendar.ucsf.edu/group/institute_for_human_genetics/calendar.ics",
+      "page": "https://calendar.ucsf.edu/group/institute_for_human_genetics"
+    },
+    {
+      "name": "Weill Institute for Neurosciences",
+      "type": "ics",
+      "url": "https://calendar.ucsf.edu/group/ucsf_weill_institute_for_neurosciences/calendar.ics",
+      "page": "https://calendar.ucsf.edu/group/ucsf_weill_institute_for_neurosciences/calendar"
+    },
+    {
+      "name": "Helen Diller Family Comprehensive Cancer Center",
+      "type": "ics",
+      "url": "https://calendar.ucsf.edu/group/helen_diller_family_comprehensive_cancer_center/calendar.ics",
+      "page": "https://calendar.ucsf.edu/group/helen_diller_family_comprehensive_cancer_center"
+    }
+  ]
+}

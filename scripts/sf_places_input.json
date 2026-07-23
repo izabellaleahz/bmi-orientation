@@ -1,0 +1,485 @@
+{
+  "_comment": "Curated SF recommendations for the map. cat = restaurant | bar | grocery | park | venue | spot. Optional 'q' overrides the geocoding query (use it to disambiguate). After editing, run: python3 scripts/geocode_places.py",
+  "places": [
+    {
+      "name": "Mensho Tokyo",
+      "cat": "restaurant",
+      "note": "Some call it the best ramen in SF.",
+      "q": "Mensho, Geary Street, San Francisco"
+    },
+    {
+      "name": "Hinodeya Ramen",
+      "cat": "restaurant",
+      "note": "",
+      "q": "Hinodeya Ramen, San Francisco"
+    },
+    {
+      "name": "Marufuku Ramen",
+      "cat": "restaurant",
+      "note": "",
+      "q": "Marufuku Ramen, Japan Center, San Francisco"
+    },
+    {
+      "name": "Moshi Moshi",
+      "cat": "restaurant",
+      "note": "Japanese, near Mission Bay.",
+      "q": "Moshi Moshi, 3rd Street, San Francisco"
+    },
+    {
+      "name": "Limón",
+      "cat": "restaurant",
+      "note": "Peruvian.",
+      "q": "Limon Rotisserie, Valencia Street, San Francisco"
+    },
+    {
+      "name": "Panchita's",
+      "cat": "restaurant",
+      "note": "",
+      "q": "Panchita's, San Francisco"
+    },
+    {
+      "name": "La Palma Mexicatessen",
+      "cat": "restaurant",
+      "note": "Great food, not really a sit-down spot.",
+      "q": "La Palma Mexicatessen, 24th Street, San Francisco"
+    },
+    {
+      "name": "Shizen",
+      "cat": "restaurant",
+      "note": "Vegan sushi.",
+      "q": "Shizen Vegan Sushi Bar, San Francisco"
+    },
+    {
+      "name": "La Mar",
+      "cat": "restaurant",
+      "note": "",
+      "q": "La Mar Cebicheria, Embarcadero, San Francisco"
+    },
+    {
+      "name": "Dalida",
+      "cat": "restaurant",
+      "note": "",
+      "q": "Dalida, Presidio, San Francisco"
+    },
+    {
+      "name": "Four Kings",
+      "cat": "restaurant",
+      "note": "",
+      "q": "Four Kings, Grant Avenue, San Francisco"
+    },
+    {
+      "name": "Lolo",
+      "cat": "restaurant",
+      "note": "",
+      "q": "Lolo, Valencia Street, San Francisco"
+    },
+    {
+      "name": "Aaha",
+      "cat": "restaurant",
+      "note": "Indian.",
+      "q": "Aaha, San Francisco"
+    },
+    {
+      "name": "Mandalay",
+      "cat": "restaurant",
+      "note": "Burmese.",
+      "q": "Mandalay, Clement Street, San Francisco"
+    },
+    {
+      "name": "Yank Sing",
+      "cat": "restaurant",
+      "note": "Dim sum.",
+      "q": "Yank Sing, Stevenson Street, San Francisco"
+    },
+    {
+      "name": "Chez Maman",
+      "cat": "restaurant",
+      "note": "",
+      "q": "Chez Maman, Potrero Hill, San Francisco"
+    },
+    {
+      "name": "Pizzetta 211",
+      "cat": "restaurant",
+      "note": "",
+      "q": "Pizzetta 211, San Francisco"
+    },
+    {
+      "name": "Kitchen Istanbul",
+      "cat": "restaurant",
+      "note": "",
+      "q": "Kitchen Istanbul, San Francisco"
+    },
+    {
+      "name": "Publico",
+      "cat": "restaurant",
+      "note": "",
+      "q": "Publico, San Francisco"
+    },
+    {
+      "name": "Wooly Pig",
+      "cat": "restaurant",
+      "note": "",
+      "q": "Wooly Pig Cafe, San Francisco"
+    },
+    {
+      "name": "Señor Sisig",
+      "cat": "restaurant",
+      "note": "Filipino.",
+      "q": "Senor Sisig, San Francisco"
+    },
+    {
+      "name": "Breakfast Little",
+      "cat": "restaurant",
+      "note": "",
+      "q": "Breakfast Little, San Francisco"
+    },
+    {
+      "name": "Neighbor Bakehouse",
+      "cat": "restaurant",
+      "note": "Dogpatch bakery.",
+      "q": "Neighbor Bakehouse, Third Street, San Francisco"
+    },
+    {
+      "name": "Arsicault Bakery",
+      "cat": "restaurant",
+      "note": "Famous croissants & kouign-amann.",
+      "q": "Arsicault Bakery, Arguello, San Francisco"
+    },
+    {
+      "name": "Garden Creamery",
+      "cat": "restaurant",
+      "note": "Ice cream.",
+      "q": "Garden Creamery, San Francisco"
+    },
+    {
+      "name": "El Rio",
+      "cat": "bar",
+      "note": "Frequently recommended; LGBTQ-friendly.",
+      "q": "El Rio, Mission Street, San Francisco"
+    },
+    {
+      "name": "Connecticut Yankee",
+      "cat": "bar",
+      "note": "Trivia on Wednesday nights.",
+      "q": "Connecticut Yankee, Connecticut Street, San Francisco"
+    },
+    {
+      "name": "20 Spot",
+      "cat": "bar",
+      "note": "Wine bar.",
+      "q": "20 Spot, Valencia Street, San Francisco"
+    },
+    {
+      "name": "The Sycamore",
+      "cat": "bar",
+      "note": "",
+      "q": "The Sycamore, Mission, San Francisco"
+    },
+    {
+      "name": "Aub Zam Zam",
+      "cat": "bar",
+      "note": "Classic Haight cocktail bar.",
+      "q": "Aub Zam Zam, Haight Street, San Francisco"
+    },
+    {
+      "name": "The Bitter End",
+      "cat": "bar",
+      "note": "",
+      "q": "The Bitter End, Clement Street, San Francisco"
+    },
+    {
+      "name": "Balboa Cafe",
+      "cat": "bar",
+      "note": "",
+      "q": "Balboa Cafe, Fillmore Street, San Francisco"
+    },
+    {
+      "name": "Casanova Lounge",
+      "cat": "bar",
+      "note": "",
+      "q": "Casanova Lounge, Valencia Street, San Francisco"
+    },
+    {
+      "name": "Last Rites",
+      "cat": "bar",
+      "note": "Tiki bar.",
+      "q": "Last Rites, Market Street, San Francisco"
+    },
+    {
+      "name": "Harmonic Brewing",
+      "cat": "bar",
+      "note": "Mission Bay brewery.",
+      "q": "Harmonic Brewing, Dogpatch, San Francisco"
+    },
+    {
+      "name": "Ballast Point",
+      "cat": "bar",
+      "note": "Mission Bay brewery.",
+      "q": "Ballast Point, Mission Bay, San Francisco"
+    },
+    {
+      "name": "Gus's Community Market",
+      "cat": "grocery",
+      "note": "",
+      "q": "Gus's Community Market, Mission, San Francisco"
+    },
+    {
+      "name": "Rainbow Grocery",
+      "cat": "grocery",
+      "note": "Co-op.",
+      "q": "Rainbow Grocery, Folsom Street, San Francisco"
+    },
+    {
+      "name": "Mi Tierra",
+      "cat": "grocery",
+      "note": "Mission.",
+      "q": "Mi Tierra, 24th Street, San Francisco"
+    },
+    {
+      "name": "New May Wah Supermarket",
+      "cat": "grocery",
+      "note": "Well-priced produce.",
+      "q": "New May Wah Supermarket, Clement Street, San Francisco"
+    },
+    {
+      "name": "Foods Co",
+      "cat": "grocery",
+      "note": "Very cheap.",
+      "q": "Foods Co, Folsom Street, San Francisco"
+    },
+    {
+      "name": "Trader Joe's (SoMa)",
+      "cat": "grocery",
+      "note": "One of several TJ's; also Bay St & Masonic.",
+      "q": "Trader Joe's, 9th Street, San Francisco"
+    },
+    {
+      "name": "Golden Gate Park",
+      "cat": "park",
+      "note": "The big one — trails, museums, gardens.",
+      "q": "Golden Gate Park, San Francisco"
+    },
+    {
+      "name": "Dolores Park",
+      "cat": "park",
+      "note": "Classic weekend hang.",
+      "q": "Mission Dolores Park, San Francisco"
+    },
+    {
+      "name": "Alamo Square",
+      "cat": "park",
+      "note": "",
+      "q": "Alamo Square, San Francisco"
+    },
+    {
+      "name": "Buena Vista Park",
+      "cat": "park",
+      "note": "",
+      "q": "Buena Vista Park, San Francisco"
+    },
+    {
+      "name": "Duboce Park",
+      "cat": "park",
+      "note": "",
+      "q": "Duboce Park, San Francisco"
+    },
+    {
+      "name": "The Panhandle",
+      "cat": "park",
+      "note": "",
+      "q": "Panhandle, Golden Gate Park, San Francisco"
+    },
+    {
+      "name": "Crane Cove Park",
+      "cat": "park",
+      "note": "Waterfront by Mission Bay.",
+      "q": "Crane Cove Park, San Francisco"
+    },
+    {
+      "name": "Bernal Heights Park",
+      "cat": "park",
+      "note": "Panoramic city views.",
+      "q": "Bernal Heights Park, San Francisco"
+    },
+    {
+      "name": "16th Avenue Tiled Steps",
+      "cat": "park",
+      "note": "The 'Mosaic Stairs.'",
+      "q": "Moraga Steps, San Francisco"
+    },
+    {
+      "name": "Presidio",
+      "cat": "park",
+      "note": "",
+      "q": "Presidio of San Francisco"
+    },
+    {
+      "name": "Mountain Lake Park",
+      "cat": "park",
+      "note": "Trail to Baker Beach.",
+      "q": "Mountain Lake Park, San Francisco"
+    },
+    {
+      "name": "Baker Beach",
+      "cat": "park",
+      "note": "",
+      "q": "Baker Beach, San Francisco"
+    },
+    {
+      "name": "Lands End",
+      "cat": "park",
+      "note": "Coastal trail & ruins.",
+      "q": "Lands End, San Francisco"
+    },
+    {
+      "name": "Sutro Baths",
+      "cat": "park",
+      "note": "",
+      "q": "Sutro Baths, San Francisco"
+    },
+    {
+      "name": "Ocean Beach",
+      "cat": "park",
+      "note": "",
+      "q": "Ocean Beach, San Francisco"
+    },
+    {
+      "name": "Marin Headlands",
+      "cat": "park",
+      "note": "North of the bridge.",
+      "q": "Marin Headlands, California"
+    },
+    {
+      "name": "Angel Island",
+      "cat": "park",
+      "note": "Take the ferry.",
+      "q": "Angel Island State Park, California"
+    },
+    {
+      "name": "Davies Symphony Hall",
+      "cat": "venue",
+      "note": "SF Symphony — student rush tickets.",
+      "q": "Davies Symphony Hall, San Francisco"
+    },
+    {
+      "name": "War Memorial Opera House",
+      "cat": "venue",
+      "note": "SF Opera.",
+      "q": "War Memorial Opera House, San Francisco"
+    },
+    {
+      "name": "The Independent",
+      "cat": "venue",
+      "note": "Live music.",
+      "q": "The Independent, Divisadero, San Francisco"
+    },
+    {
+      "name": "Fox Theater (Oakland)",
+      "cat": "venue",
+      "note": "Live music, Oakland.",
+      "q": "Fox Theater, Oakland"
+    },
+    {
+      "name": "The Roxie Theater",
+      "cat": "venue",
+      "note": "Indie films.",
+      "q": "Roxie Theatre, 16th Street, San Francisco"
+    },
+    {
+      "name": "AMC Metreon",
+      "cat": "venue",
+      "note": "AMC Tuesdays.",
+      "q": "AMC Metreon, San Francisco"
+    },
+    {
+      "name": "Orpheum Theatre",
+      "cat": "venue",
+      "note": "Broadway SF.",
+      "q": "Orpheum Theatre, Market Street, San Francisco"
+    },
+    {
+      "name": "Kezar Pub",
+      "cat": "venue",
+      "note": "Watch soccer.",
+      "q": "Kezar Pub, Stanyan Street, San Francisco"
+    },
+    {
+      "name": "California Academy of Sciences",
+      "cat": "venue",
+      "note": "NightLife (21+) on Thursdays.",
+      "q": "California Academy of Sciences, San Francisco"
+    },
+    {
+      "name": "de Young Museum",
+      "cat": "venue",
+      "note": "",
+      "q": "de Young Museum, San Francisco"
+    },
+    {
+      "name": "SFMOMA",
+      "cat": "venue",
+      "note": "",
+      "q": "SFMOMA, 3rd Street, San Francisco"
+    },
+    {
+      "name": "Asian Art Museum",
+      "cat": "venue",
+      "note": "",
+      "q": "Asian Art Museum, San Francisco"
+    },
+    {
+      "name": "Exploratorium",
+      "cat": "venue",
+      "note": "",
+      "q": "Exploratorium, Embarcadero, San Francisco"
+    },
+    {
+      "name": "Oakland Museum of California",
+      "cat": "venue",
+      "note": "Oakland.",
+      "q": "Oakland Museum of California, Oakland"
+    },
+    {
+      "name": "SF Public Library (Main)",
+      "cat": "spot",
+      "note": "Free card; hosts events.",
+      "q": "San Francisco Main Library, Larkin Street, San Francisco"
+    },
+    {
+      "name": "Cafe Greco",
+      "cat": "spot",
+      "note": "North Beach study spot.",
+      "q": "Cafe Greco, Columbus Avenue, San Francisco"
+    },
+    {
+      "name": "Ferry Building",
+      "cat": "spot",
+      "note": "Farmers market & food hall.",
+      "q": "Ferry Building, San Francisco"
+    },
+    {
+      "name": "Japanese Tea Garden",
+      "cat": "spot",
+      "note": "",
+      "q": "Japanese Tea Garden, Golden Gate Park, San Francisco"
+    },
+    {
+      "name": "Conservatory of Flowers",
+      "cat": "spot",
+      "note": "Free for SF residents.",
+      "q": "Conservatory of Flowers, San Francisco"
+    },
+    {
+      "name": "Medicine for Nightmares",
+      "cat": "spot",
+      "note": "Bookstore & gallery.",
+      "q": "Medicine for Nightmares, 24th Street, San Francisco"
+    },
+    {
+      "name": "Dog Eared Books",
+      "cat": "spot",
+      "note": "Bookstore.",
+      "q": "Dog Eared Books, Valencia Street, San Francisco"
+    }
+  ]
+}

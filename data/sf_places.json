@@ -1,0 +1,646 @@
+{
+  "count": 74,
+  "total": 80,
+  "items": [
+    {
+      "name": "Mensho Tokyo",
+      "cat": "restaurant",
+      "note": "Some call it the best ramen in SF.",
+      "lat": 37.7867,
+      "lng": -122.414315,
+      "matched": "Mensho Ramen, 672, Geary Street, Lower Nob Hill, Tenderloin, South of Market, San Francisco, California, 94102, United States"
+    },
+    {
+      "name": "Hinodeya Ramen",
+      "cat": "restaurant",
+      "note": "",
+      "lat": 37.786284,
+      "lng": -122.408395,
+      "matched": "Hinodeya Ramen & Bar, 219, O'Farrell Street, Union Square, Tenderloin, South of Market, San Francisco, California, 94102, United States"
+    },
+    {
+      "name": "Marufuku Ramen",
+      "cat": "restaurant",
+      "note": "",
+      "lat": 37.785128,
+      "lng": -122.431998,
+      "matched": "Marufuku Ramen, Post Street, Japantown, Western Addition, San Francisco, California, 95115, United States"
+    },
+    {
+      "name": "Moshi Moshi",
+      "cat": "restaurant",
+      "note": "Japanese, near Mission Bay.",
+      "lat": 37.763228,
+      "lng": -122.389087,
+      "matched": "Moshi Moshi, 18th Street, Pier 70, Mission Bay, South of Market, San Francisco, California, 94158, United States"
+    },
+    {
+      "name": "Limón",
+      "cat": "restaurant",
+      "note": "Peruvian.",
+      "lat": 37.764449,
+      "lng": -122.422008,
+      "matched": "Limón, 524, Valencia Street, Mission, San Francisco, California, 94143, United States"
+    },
+    {
+      "name": "Panchita's",
+      "cat": "restaurant",
+      "note": "",
+      "lat": 37.764702,
+      "lng": -122.421717,
+      "matched": "Panchita's Pupuseria To-Go, 509, Valencia Street, Mission, San Francisco, California, 94110, United States"
+    },
+    {
+      "name": "La Palma Mexicatessen",
+      "cat": "restaurant",
+      "note": "Great food, not really a sit-down spot.",
+      "lat": 37.752852,
+      "lng": -122.409955,
+      "matched": "La Palma Mexicatessen, 2884, 24th Street, Potrero Hill, Mission, San Francisco, California, 94110, United States"
+    },
+    {
+      "name": "Shizen",
+      "cat": "restaurant",
+      "note": "Vegan sushi.",
+      "lat": 37.768282,
+      "lng": -122.421668,
+      "matched": "Shizen, 370, 14th Street, Mission, San Francisco, California, 94103, United States"
+    },
+    {
+      "name": "La Mar",
+      "cat": "restaurant",
+      "note": "",
+      "lat": 37.797377,
+      "lng": -122.39524,
+      "matched": "La Mar Cebicheria Peruana, Pier 1 1/2, The Embarcadero, Financial District, South of Market, San Francisco, California, 94111, United States"
+    },
+    {
+      "name": "Dalida",
+      "cat": "restaurant",
+      "note": "",
+      "lat": null,
+      "lng": null,
+      "matched": ""
+    },
+    {
+      "name": "Four Kings",
+      "cat": "restaurant",
+      "note": "",
+      "lat": null,
+      "lng": null,
+      "matched": ""
+    },
+    {
+      "name": "Lolo",
+      "cat": "restaurant",
+      "note": "",
+      "lat": 37.757371,
+      "lng": -122.421313,
+      "matched": "Loló, 974, Valencia Street, Mission, San Francisco, California, 94110, United States"
+    },
+    {
+      "name": "Aaha",
+      "cat": "restaurant",
+      "note": "Indian.",
+      "lat": 37.763511,
+      "lng": -122.419987,
+      "matched": "Aaha Indian Cuisine, 3316, 17th Street, Mission, San Francisco, California, 94110, United States"
+    },
+    {
+      "name": "Mandalay",
+      "cat": "restaurant",
+      "note": "Burmese.",
+      "lat": 37.785224,
+      "lng": -122.464325,
+      "matched": "Mandalay, 4348, California Street, Presidio Terrace, Inner Richmond, Richmond District, San Francisco, California, 94118, United States"
+    },
+    {
+      "name": "Yank Sing",
+      "cat": "restaurant",
+      "note": "Dim sum.",
+      "lat": 37.789862,
+      "lng": -122.399295,
+      "matched": "Yank Sing, 49, Stevenson Street, Transbay, Financial District, South of Market, San Francisco, California, 94104, United States"
+    },
+    {
+      "name": "Chez Maman",
+      "cat": "restaurant",
+      "note": "",
+      "lat": 37.762484,
+      "lng": -122.396684,
+      "matched": "Chez Maman East, 1401, 18th Street, Potrero Hill, Mission, San Francisco, California, 94107, United States"
+    },
+    {
+      "name": "Pizzetta 211",
+      "cat": "restaurant",
+      "note": "",
+      "lat": 37.783706,
+      "lng": -122.482999,
+      "matched": "Pizzetta 211, 211, 23rd Avenue, Seacliff, Richmond District, San Francisco, California, 94121, United States"
+    },
+    {
+      "name": "Kitchen Istanbul",
+      "cat": "restaurant",
+      "note": "",
+      "lat": 37.782891,
+      "lng": -122.463201,
+      "matched": "Kitchen Istanbul, 349, Clement Street, Jordan Park, Inner Richmond, Richmond District, San Francisco, California, 94118, United States"
+    },
+    {
+      "name": "Publico",
+      "cat": "restaurant",
+      "note": "",
+      "lat": 37.769031,
+      "lng": -122.390576,
+      "matched": "Publico, 550, Gene Friend Way, Mission Bay, San Francisco, California, 94158, United States"
+    },
+    {
+      "name": "Wooly Pig",
+      "cat": "restaurant",
+      "note": "",
+      "lat": 37.760627,
+      "lng": -122.388401,
+      "matched": "Wooly Pig, 2295, 3rd Street, Pier 70, Mission Bay, San Francisco, California, 94107, United States"
+    },
+    {
+      "name": "Señor Sisig",
+      "cat": "restaurant",
+      "note": "Filipino.",
+      "lat": 37.796113,
+      "lng": -122.393658,
+      "matched": "Señor Sisig, 1, Ferry Building, San Francisco, California, 94111, United States"
+    },
+    {
+      "name": "Breakfast Little",
+      "cat": "restaurant",
+      "note": "",
+      "lat": 37.755225,
+      "lng": -122.420361,
+      "matched": "Breakfast Little, 3275, 22nd Street, Mission, San Francisco, California, 94110, United States"
+    },
+    {
+      "name": "Neighbor Bakehouse",
+      "cat": "restaurant",
+      "note": "Dogpatch bakery.",
+      "lat": null,
+      "lng": null,
+      "matched": ""
+    },
+    {
+      "name": "Arsicault Bakery",
+      "cat": "restaurant",
+      "note": "Famous croissants & kouign-amann.",
+      "lat": 37.783407,
+      "lng": -122.459227,
+      "matched": "Arsicault Bakery, 397, Arguello Boulevard, Jordan Park, Inner Richmond, Richmond District, San Francisco, California, 94118, United States"
+    },
+    {
+      "name": "Garden Creamery",
+      "cat": "restaurant",
+      "note": "Ice cream.",
+      "lat": 37.758671,
+      "lng": -122.420464,
+      "matched": "Garden Creamery, 3566, 20th Street, Mission, San Francisco, California, 94110, United States"
+    },
+    {
+      "name": "El Rio",
+      "cat": "bar",
+      "note": "Frequently recommended; LGBTQ-friendly.",
+      "lat": 37.74675,
+      "lng": -122.419329,
+      "matched": "El Rio, 3158, Mission Street, Bernal Heights, Mission, San Francisco, California, 94110, United States"
+    },
+    {
+      "name": "Connecticut Yankee",
+      "cat": "bar",
+      "note": "Trivia on Wednesday nights.",
+      "lat": null,
+      "lng": null,
+      "matched": ""
+    },
+    {
+      "name": "20 Spot",
+      "cat": "bar",
+      "note": "Wine bar.",
+      "lat": 37.75843,
+      "lng": -122.42042,
+      "matched": "20 Spot, 3565, 20th Street, Mission, San Francisco, California, 94110, United States"
+    },
+    {
+      "name": "The Sycamore",
+      "cat": "bar",
+      "note": "",
+      "lat": 37.762774,
+      "lng": -122.419629,
+      "matched": "The Sycamore, 2140, Mission Street, Mission, San Francisco, California, 94110, United States"
+    },
+    {
+      "name": "Aub Zam Zam",
+      "cat": "bar",
+      "note": "Classic Haight cocktail bar.",
+      "lat": 37.7696,
+      "lng": -122.449302,
+      "matched": "Aub Zam Zam, 1633, Haight Street, Cole Valley, Haight-Ashbury, Richmond District, San Francisco, California, 94117, United States"
+    },
+    {
+      "name": "The Bitter End",
+      "cat": "bar",
+      "note": "",
+      "lat": 37.782841,
+      "lng": -122.464044,
+      "matched": "The Bitter End, Clement Street, Jordan Park, Inner Richmond, Richmond District, San Francisco, California, 94118, United States"
+    },
+    {
+      "name": "Balboa Cafe",
+      "cat": "bar",
+      "note": "",
+      "lat": 37.798794,
+      "lng": -122.436098,
+      "matched": "Balboa Cafe, 3199, Fillmore Street, Cow Hollow, Marina District, San Francisco, California, 94123, United States"
+    },
+    {
+      "name": "Casanova Lounge",
+      "cat": "bar",
+      "note": "",
+      "lat": 37.764386,
+      "lng": -122.421679,
+      "matched": "Casanova Lounge, 527, Valencia Street, Mission, San Francisco, California, 94110, United States"
+    },
+    {
+      "name": "Last Rites",
+      "cat": "bar",
+      "note": "Tiki bar.",
+      "lat": 37.767813,
+      "lng": -122.429452,
+      "matched": "Last Rites, 718, 14th Street, Duboce Triangle, San Francisco, California, 94114, United States"
+    },
+    {
+      "name": "Harmonic Brewing",
+      "cat": "bar",
+      "note": "Mission Bay brewery.",
+      "lat": 37.75154,
+      "lng": -122.390145,
+      "matched": "Harmonic Brewing, 1050, 26th Street, Potrero Hill, Bayview District, San Francisco, California, 94107, United States"
+    },
+    {
+      "name": "Ballast Point",
+      "cat": "bar",
+      "note": "Mission Bay brewery.",
+      "lat": 37.766441,
+      "lng": -122.393445,
+      "matched": "Ballast Point Tasting Room & Kitchen, 16th Street, Mission Bay, San Francisco, California, 94107, United States"
+    },
+    {
+      "name": "Gus's Community Market",
+      "cat": "grocery",
+      "note": "",
+      "lat": 37.763978,
+      "lng": -122.412823,
+      "matched": "Gus's Community Market, 2111, Harrison Street, Mission, San Francisco, California, 94110, United States"
+    },
+    {
+      "name": "Rainbow Grocery",
+      "cat": "grocery",
+      "note": "Co-op.",
+      "lat": 37.769137,
+      "lng": -122.415075,
+      "matched": "Rainbow Grocery Coop, 1745, Folsom Street, Mission, San Francisco, California, 94103, United States"
+    },
+    {
+      "name": "Mi Tierra",
+      "cat": "grocery",
+      "note": "Mission.",
+      "lat": 37.764592,
+      "lng": -122.419447,
+      "matched": "Mi Tierra Market, Mission Street, Mission, San Francisco, California, 94143, United States"
+    },
+    {
+      "name": "New May Wah Supermarket",
+      "cat": "grocery",
+      "note": "Well-priced produce.",
+      "lat": 37.782596,
+      "lng": -122.466956,
+      "matched": "Richmond New May Wah Supermarket, Clement Street, Inner Richmond, Richmond District, San Francisco, California, 94118, United States"
+    },
+    {
+      "name": "Foods Co",
+      "cat": "grocery",
+      "note": "Very cheap.",
+      "lat": 37.767662,
+      "lng": -122.416124,
+      "matched": "Foods Co, 1800, Folsom Street, Mission, San Francisco, California, 94143, United States"
+    },
+    {
+      "name": "Trader Joe's (SoMa)",
+      "cat": "grocery",
+      "note": "One of several TJ's; also Bay St & Masonic.",
+      "lat": 37.770999,
+      "lng": -122.407737,
+      "matched": "Trader Joe's, 555, 9th Street, Civic Center, South of Market, San Francisco, California, 94103, United States"
+    },
+    {
+      "name": "Golden Gate Park",
+      "cat": "park",
+      "note": "The big one — trails, museums, gardens.",
+      "lat": 37.769368,
+      "lng": -122.482184,
+      "matched": "Golden Gate Park, San Francisco, California, United States"
+    },
+    {
+      "name": "Dolores Park",
+      "cat": "park",
+      "note": "Classic weekend hang.",
+      "lat": 37.75972,
+      "lng": -122.427132,
+      "matched": "Mission Dolores Park, Cumberland Street, Castro District, Mission, San Francisco, California, 94114, United States"
+    },
+    {
+      "name": "Alamo Square",
+      "cat": "park",
+      "note": "",
+      "lat": 37.77636,
+      "lng": -122.4347,
+      "matched": "Alamo Square, Western Addition, San Francisco, California, 94117, United States"
+    },
+    {
+      "name": "Buena Vista Park",
+      "cat": "park",
+      "note": "",
+      "lat": 37.768363,
+      "lng": -122.441277,
+      "matched": "Buena Vista Park, Mission, San Francisco, California, United States"
+    },
+    {
+      "name": "Duboce Park",
+      "cat": "park",
+      "note": "",
+      "lat": 37.769841,
+      "lng": -122.432485,
+      "matched": "Duboce Park, Western Addition, San Francisco, California, United States"
+    },
+    {
+      "name": "The Panhandle",
+      "cat": "park",
+      "note": "",
+      "lat": 37.771722,
+      "lng": -122.446303,
+      "matched": "The Urban School of San Francisco, 1639, Oak Street, Panhandle, San Francisco, California, 94177, United States"
+    },
+    {
+      "name": "Crane Cove Park",
+      "cat": "park",
+      "note": "Waterfront by Mission Bay.",
+      "lat": 37.762551,
+      "lng": -122.387112,
+      "matched": "Crane Cove Park, Mission Bay, South of Market, San Francisco, California, United States"
+    },
+    {
+      "name": "Bernal Heights Park",
+      "cat": "park",
+      "note": "Panoramic city views.",
+      "lat": 37.74344,
+      "lng": -122.413471,
+      "matched": "Bernal Heights Park, Bernal Heights, Mission, San Francisco, California, United States"
+    },
+    {
+      "name": "16th Avenue Tiled Steps",
+      "cat": "park",
+      "note": "The 'Mosaic Stairs.'",
+      "lat": null,
+      "lng": null,
+      "matched": ""
+    },
+    {
+      "name": "Presidio",
+      "cat": "park",
+      "note": "",
+      "lat": 37.798793,
+      "lng": -122.46458,
+      "matched": "Presidio of San Francisco, San Francisco, California, 94129, United States"
+    },
+    {
+      "name": "Mountain Lake Park",
+      "cat": "park",
+      "note": "Trail to Baker Beach.",
+      "lat": 37.787244,
+      "lng": -122.469352,
+      "matched": "Mountain Lake Park, Inner Richmond, Richmond District, San Francisco, California, United States"
+    },
+    {
+      "name": "Baker Beach",
+      "cat": "park",
+      "note": "",
+      "lat": 37.793123,
+      "lng": -122.483821,
+      "matched": "Baker Beach, Richmond District, San Francisco, California, United States"
+    },
+    {
+      "name": "Lands End",
+      "cat": "park",
+      "note": "Coastal trail & ruins.",
+      "lat": 37.783844,
+      "lng": -122.506753,
+      "matched": "Lands End, Richmond District, San Francisco, California, United States"
+    },
+    {
+      "name": "Sutro Baths",
+      "cat": "park",
+      "note": "",
+      "lat": 37.780252,
+      "lng": -122.513625,
+      "matched": "Sutro Baths, Point Lobos Avenue, San Francisco, California, 94121, United States"
+    },
+    {
+      "name": "Ocean Beach",
+      "cat": "park",
+      "note": "",
+      "lat": 37.756151,
+      "lng": -122.510185,
+      "matched": "Ocean Beach, Sunset District, San Francisco, California, United States"
+    },
+    {
+      "name": "Marin Headlands",
+      "cat": "park",
+      "note": "North of the bridge.",
+      "lat": 37.855682,
+      "lng": -122.533725,
+      "matched": "Marin Headlands, Marin City, Marin County, California, United States"
+    },
+    {
+      "name": "Angel Island",
+      "cat": "park",
+      "note": "Take the ferry.",
+      "lat": 37.862928,
+      "lng": -122.43034,
+      "matched": "Angel Island State Park, Tiburon, Marin County, California, United States"
+    },
+    {
+      "name": "Davies Symphony Hall",
+      "cat": "venue",
+      "note": "SF Symphony — student rush tickets.",
+      "lat": 37.777647,
+      "lng": -122.420458,
+      "matched": "Louise M. Davies Symphony Hall, 201, Van Ness Avenue, Civic Center, Tenderloin, Mission, San Francisco, California, 94102, United States"
+    },
+    {
+      "name": "War Memorial Opera House",
+      "cat": "venue",
+      "note": "SF Opera.",
+      "lat": 37.778537,
+      "lng": -122.420928,
+      "matched": "War Memorial Opera House, 301, Van Ness Avenue, Civic Center, South of Market, San Francisco, California, 94102, United States"
+    },
+    {
+      "name": "The Independent",
+      "cat": "venue",
+      "note": "Live music.",
+      "lat": 37.775528,
+      "lng": -122.437641,
+      "matched": "The Independent, 628, Divisadero Street, Alamo Square, Western Addition, San Francisco, California, 94117, United States"
+    },
+    {
+      "name": "Fox Theater (Oakland)",
+      "cat": "venue",
+      "note": "Live music, Oakland.",
+      "lat": 37.808144,
+      "lng": -122.270515,
+      "matched": "Fox Oakland Theater, 521, 19th Street, Uptown, Downtown Oakland, Oakland, Alameda County, California, 94612, United States"
+    },
+    {
+      "name": "The Roxie Theater",
+      "cat": "venue",
+      "note": "Indie films.",
+      "lat": null,
+      "lng": null,
+      "matched": ""
+    },
+    {
+      "name": "AMC Metreon",
+      "cat": "venue",
+      "note": "AMC Tuesdays.",
+      "lat": 37.784464,
+      "lng": -122.403707,
+      "matched": "AMC Loews Metreon 16, 135, 4th Street, Union Square, Tenderloin, South of Market, San Francisco, California, 94103, United States"
+    },
+    {
+      "name": "Orpheum Theatre",
+      "cat": "venue",
+      "note": "Broadway SF.",
+      "lat": 37.779162,
+      "lng": -122.414735,
+      "matched": "Orpheum Theatre, 1192, Market Street, Civic Center, South of Market, San Francisco, California, 94102, United States"
+    },
+    {
+      "name": "Kezar Pub",
+      "cat": "venue",
+      "note": "Watch soccer.",
+      "lat": 37.767882,
+      "lng": -122.452965,
+      "matched": "The Kezar Pub, 770, Stanyan Street, Cole Valley, Haight-Ashbury, Richmond District, San Francisco, California, 94117, United States"
+    },
+    {
+      "name": "California Academy of Sciences",
+      "cat": "venue",
+      "note": "NightLife (21+) on Thursdays.",
+      "lat": 37.769827,
+      "lng": -122.466093,
+      "matched": "California Academy of Sciences, 55, Music Concourse Drive, Inner Richmond, Richmond District, San Francisco, California, 94118, United States"
+    },
+    {
+      "name": "de Young Museum",
+      "cat": "venue",
+      "note": "",
+      "lat": 37.771498,
+      "lng": -122.469092,
+      "matched": "de Young Museum, 50, Hagiwara Tea Garden Drive, Inner Richmond, Richmond District, San Francisco, California, 94118, United States"
+    },
+    {
+      "name": "SFMOMA",
+      "cat": "venue",
+      "note": "",
+      "lat": 37.785915,
+      "lng": -122.400736,
+      "matched": "San Francisco Museum of Modern Art, 151, 3rd Street, Transbay, Financial District, South of Market, San Francisco, California, 94103, United States"
+    },
+    {
+      "name": "Asian Art Museum",
+      "cat": "venue",
+      "note": "",
+      "lat": 37.780315,
+      "lng": -122.415992,
+      "matched": "Asian Art Museum of San Francisco, 200, Larkin Street, Civic Center, South of Market, San Francisco, California, 94102, United States"
+    },
+    {
+      "name": "Exploratorium",
+      "cat": "venue",
+      "note": "",
+      "lat": 37.800898,
+      "lng": -122.398526,
+      "matched": "Exploratorium, Herb Caen Way..., Telegraph Hill, Financial District, South of Market, San Francisco, California, 94111, United States"
+    },
+    {
+      "name": "Oakland Museum of California",
+      "cat": "venue",
+      "note": "Oakland.",
+      "lat": 37.798614,
+      "lng": -122.263604,
+      "matched": "Oakland Museum of California, 1000, Oak Street, Civic Center, Downtown Oakland, Oakland, Alameda County, California, 94607, United States"
+    },
+    {
+      "name": "SF Public Library (Main)",
+      "cat": "spot",
+      "note": "Free card; hosts events.",
+      "lat": 37.779188,
+      "lng": -122.415783,
+      "matched": "San Francisco Public Library - Main Library, 100, Larkin Street, Civic Center, South of Market, San Francisco, California, 94102, United States"
+    },
+    {
+      "name": "Cafe Greco",
+      "cat": "spot",
+      "note": "North Beach study spot.",
+      "lat": 37.798963,
+      "lng": -122.408495,
+      "matched": "Caffè Greco, 423, Columbus Avenue, Telegraph Hill, Financial District, South of Market, San Francisco, California, 94113, United States"
+    },
+    {
+      "name": "Ferry Building",
+      "cat": "spot",
+      "note": "Farmers market & food hall.",
+      "lat": 37.795549,
+      "lng": -122.393475,
+      "matched": "San Francisco Ferry Building, 1, The Embarcadero, Financial District, South of Market, San Francisco, California, 94111, United States"
+    },
+    {
+      "name": "Japanese Tea Garden",
+      "cat": "spot",
+      "note": "",
+      "lat": 37.770293,
+      "lng": -122.470124,
+      "matched": "Japanese Tea Garden, 75, Inner Richmond, Richmond District, San Francisco, California, 94118, United States"
+    },
+    {
+      "name": "Conservatory of Flowers",
+      "cat": "spot",
+      "note": "Free for SF residents.",
+      "lat": 37.772607,
+      "lng": -122.460228,
+      "matched": "Conservatory of Flowers, 100, John F. Kennedy Promenade, Inner Richmond, Richmond District, San Francisco, California, 94118, United States"
+    },
+    {
+      "name": "Medicine for Nightmares",
+      "cat": "spot",
+      "note": "Bookstore & gallery.",
+      "lat": 37.752705,
+      "lng": -122.41269,
+      "matched": "Medicine for Nightmares, 3036, 24th Street, Potrero Hill, Mission, San Francisco, California, 94110, United States"
+    },
+    {
+      "name": "Dog Eared Books",
+      "cat": "spot",
+      "note": "Bookstore.",
+      "lat": 37.758389,
+      "lng": -122.421416,
+      "matched": "Dog Eared Books, 900, Valencia Street, Mission, San Francisco, California, 94110, United States"
+    }
+  ]
+}

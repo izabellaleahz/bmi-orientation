@@ -1,0 +1,935 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rotation Orientation</title>
+<style>
+  :root {
+    --paper:#FAFAFB; --surface:#FFFFFF; --surface-2:#F2F3F6;
+    --ink:#1B1F27; --muted:#616B7A; --line:#E4E6EC;
+    --accent:#0E7C6B; --accent-ink:#0A5A4E; --accent-wash:#E6F2EF;
+    --shadow:0 1px 2px rgba(20,22,27,.05), 0 8px 24px rgba(20,22,27,.05);
+    --radius:14px;
+    --t-1:#0E7C6B; --t-1-wash:#E2F0ED; --t-2:#B8791C; --t-2-wash:#F6EEDD;
+    --t-3:#8A4B93; --t-3-wash:#F1E7F3; --t-4:#3D5CC4; --t-4-wash:#E6EAF8;
+    --t-5:#C24667; --t-5-wash:#F8E6EC; --t-6:#4B7A2E; --t-6-wash:#E8F1E1;
+    --t-7:#C2612F; --t-7-wash:#F8EAE1;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:#14161B; --surface:#1C1F27; --surface-2:#232732;
+      --ink:#ECEEF3; --muted:#9AA3B2; --line:#2C303B;
+      --accent:#3FB9A3; --accent-ink:#8FE0D1; --accent-wash:#153029;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+      --t-1:#3FB9A3; --t-1-wash:#14312B; --t-2:#D9A34A; --t-2-wash:#332812;
+      --t-3:#C089CA; --t-3-wash:#2C1E30; --t-4:#7E97E8; --t-4-wash:#1B2340;
+      --t-5:#E6809B; --t-5-wash:#361B24; --t-6:#8CC463; --t-6-wash:#1E2C15;
+      --t-7:#DE8A5A; --t-7-wash:#38251A;
+    }
+  }
+  :root[data-theme="light"] {
+    --paper:#FAFAFB; --surface:#FFFFFF; --surface-2:#F2F3F6;
+    --ink:#1B1F27; --muted:#616B7A; --line:#E4E6EC;
+    --accent:#0E7C6B; --accent-ink:#0A5A4E; --accent-wash:#E6F2EF;
+    --shadow:0 1px 2px rgba(20,22,27,.05), 0 8px 24px rgba(20,22,27,.05);
+    --t-1:#0E7C6B; --t-1-wash:#E2F0ED; --t-2:#B8791C; --t-2-wash:#F6EEDD;
+    --t-3:#8A4B93; --t-3-wash:#F1E7F3; --t-4:#3D5CC4; --t-4-wash:#E6EAF8;
+    --t-5:#C24667; --t-5-wash:#F8E6EC; --t-6:#4B7A2E; --t-6-wash:#E8F1E1;
+    --t-7:#C2612F; --t-7-wash:#F8EAE1;
+  }
+  :root[data-theme="dark"] {
+    --paper:#14161B; --surface:#1C1F27; --surface-2:#232732;
+    --ink:#ECEEF3; --muted:#9AA3B2; --line:#2C303B;
+    --accent:#3FB9A3; --accent-ink:#8FE0D1; --accent-wash:#153029;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    --t-1:#3FB9A3; --t-1-wash:#14312B; --t-2:#D9A34A; --t-2-wash:#332812;
+    --t-3:#C089CA; --t-3-wash:#2C1E30; --t-4:#7E97E8; --t-4-wash:#1B2340;
+    --t-5:#E6809B; --t-5-wash:#361B24; --t-6:#8CC463; --t-6-wash:#1E2C15;
+    --t-7:#DE8A5A; --t-7-wash:#38251A;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent-ink); }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+  /* Masthead */
+  header.masthead { padding: 48px 0 22px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: 12px; font-weight: 600; color: var(--accent); margin: 0 0 12px; }
+  h1.title { font-family: Georgia, "Times New Roman", Times, serif; font-weight: 700; font-size: clamp(30px, 6vw, 46px); line-height: 1.08; margin: 0 0 14px; letter-spacing: -.01em; text-wrap: balance; }
+  .lede { color: var(--muted); font-size: 17px; max-width: 62ch; margin: 0; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 20px; color: var(--muted); font-size: 14px; }
+  .meta-row b { color: var(--ink); font-weight: 600; }
+
+  /* Tab bar */
+  .tabbar { position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .tabbar-inner { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+  .tabbar-inner::-webkit-scrollbar { display: none; }
+  .tab {
+    appearance: none; background: none; border: none; border-bottom: 2px solid transparent;
+    color: var(--muted); font: inherit; font-size: 14.5px; font-weight: 600; white-space: nowrap;
+    padding: 14px 12px 12px; cursor: pointer; transition: color .12s;
+  }
+  .tab:hover { color: var(--ink); }
+  .tab[aria-selected="true"] { color: var(--accent-ink); border-bottom-color: var(--accent); }
+  .tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; border-radius: 4px; }
+
+  main { padding: 8px 0 90px; }
+  .panel { display: none; }
+  .panel.active { display: block; animation: fade .18s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .panel.active { animation: none; } }
+
+  .panel-intro { color: var(--muted); font-size: 15.5px; margin: 24px 0 4px; max-width: 64ch; }
+  .section-head { font-family: Georgia, serif; font-size: 22px; font-weight: 700; margin: 32px 0 14px; letter-spacing: -.01em; }
+
+  /* Filter chips */
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 22px 0 6px; }
+  .chip-label { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 600; margin-right: 2px; }
+  .chip { appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; font-size: 13px; font-weight: 500; padding: 5px 12px; border-radius: 999px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; transition: border-color .12s, opacity .12s; }
+  .chip .dot { width: 9px; height: 9px; border-radius: 999px; background: var(--td, var(--accent)); flex: none; }
+  .chip[aria-pressed="false"] { opacity: .42; }
+  .chip:hover { border-color: var(--muted); }
+  .chip:focus-visible, .cal-btn:focus-visible, .cal-menu a:focus-visible, .theme-toggle:focus-visible, .acc-q:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* Day sections + event cards */
+  .day { margin-top: 34px; }
+  .day-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+  .day-head h2 { font-family: Georgia, serif; font-size: 24px; font-weight: 700; margin: 0; letter-spacing: -.01em; }
+  .day-head .day-date { color: var(--muted); font-size: 15px; }
+  .day-rule { height: 1px; background: var(--line); margin: 12px 0 18px; }
+
+  .event { display: grid; grid-template-columns: 92px 1fr; gap: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 12px; box-shadow: var(--shadow); }
+  .event.hidden { display: none; }
+  .event .time { font-variant-numeric: tabular-nums; font-size: 14px; font-weight: 600; color: var(--ink); border-right: 1px solid var(--line); padding-right: 14px; }
+  .event .time .end { display: block; color: var(--muted); font-weight: 400; margin-top: 2px; }
+  .event .time .allday { color: var(--accent-ink); font-size: 12.5px; text-transform: uppercase; letter-spacing: .05em; }
+  .event .body { min-width: 0; }
+  .event h3 { font-size: 17px; font-weight: 650; margin: 0 0 6px; letter-spacing: -.005em; text-wrap: balance; }
+  .track-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; font-weight: 600; padding: 2px 9px; border-radius: 999px; margin-bottom: 8px; background: var(--tw); color: var(--tc); }
+  .track-chip .dot { width: 7px; height: 7px; border-radius: 999px; background: var(--tc); }
+  .event .desc { color: var(--muted); font-size: 14.5px; margin: 0 0 10px; }
+  .facts { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13.5px; color: var(--muted); margin-bottom: 12px; }
+  .facts span { display: inline-flex; align-items: center; gap: 6px; }
+  .facts svg { width: 14px; height: 14px; flex: none; stroke: var(--muted); fill: none; }
+
+  /* Add to calendar */
+  .cal { position: relative; display: inline-block; }
+  .cal-btn { appearance: none; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink); font: inherit; font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 9px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; }
+  .cal-btn:hover { border-color: var(--muted); }
+  .cal-btn svg { width: 15px; height: 15px; stroke: var(--accent); fill: none; }
+  .cal-menu { position: absolute; top: calc(100% + 6px); left: 0; z-index: 40; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); padding: 5px; min-width: 190px; display: none; }
+  .cal-menu.open { display: block; }
+  .cal-menu a { display: flex; align-items: center; gap: 9px; padding: 8px 10px; border-radius: 7px; text-decoration: none; color: var(--ink); font-size: 13.5px; cursor: pointer; }
+  .cal-menu a:hover { background: var(--surface-2); }
+  .cal-menu svg { width: 15px; height: 15px; stroke: var(--muted); flex: none; fill: none; }
+
+  .empty { color: var(--muted); padding: 40px 0; display: none; }
+  .empty.show { display: block; }
+
+  /* View toggle */
+  .view-toggle { display: inline-flex; margin: 22px 0 0; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); padding: 3px; }
+  .vt-btn { appearance: none; border: none; background: none; font: inherit; font-size: 13px; font-weight: 600; color: var(--muted); padding: 6px 16px; border-radius: 999px; cursor: pointer; }
+  .vt-btn[aria-pressed="true"] { background: var(--accent); color: #fff; }
+  .vt-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* Week calendar */
+  .wk-nav { display: flex; align-items: center; gap: 14px; margin: 22px 0 14px; }
+  .wk-arrow { appearance: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; font-size: 16px; line-height: 1; width: 34px; height: 34px; border-radius: 9px; cursor: pointer; }
+  .wk-arrow:hover:not(:disabled) { border-color: var(--muted); }
+  .wk-arrow:disabled { opacity: .35; cursor: default; }
+  .wk-arrow:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .wk-label { font-family: Georgia, serif; font-size: 18px; font-weight: 700; }
+  .wk-scroll { overflow-x: auto; }
+  .wk { --gutter: 52px; --col-min: 116px; min-width: 640px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); box-shadow: var(--shadow); }
+  .wk-head, .wk-allday { display: grid; grid-template-columns: var(--gutter) repeat(var(--ncols), minmax(var(--col-min), 1fr)); }
+  .wk-head { border-bottom: 1px solid var(--line); }
+  .wk-head .wk-gtr { border-right: 1px solid var(--line); }
+  .wk-head .wk-dh { padding: 9px 8px; text-align: center; border-right: 1px solid var(--line); }
+  .wk-head .wk-dh:last-child { border-right: none; }
+  .wk-head .wk-dh.today { background: var(--accent-wash); }
+  .wk-dh .wd { font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+  .wk-dh .dd { font-size: 17px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .wk-allday { border-bottom: 1px solid var(--line); min-height: 30px; }
+  .wk-allday .wk-gtr { border-right: 1px solid var(--line); font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; display: flex; align-items: center; justify-content: center; }
+  .wk-allday .wk-adcell { border-right: 1px solid var(--line); padding: 4px; display: flex; flex-direction: column; gap: 3px; }
+  .wk-allday .wk-adcell:last-child { border-right: none; }
+  .ad-chip { font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 6px; background: var(--tw); color: var(--tc); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .wk-body { display: grid; grid-template-columns: var(--gutter) repeat(var(--ncols), minmax(var(--col-min), 1fr)); position: relative; }
+  .wk-times { position: relative; border-right: 1px solid var(--line); }
+  .wk-times .hr { position: absolute; right: 6px; font-size: 11px; color: var(--muted); transform: translateY(-6px); font-variant-numeric: tabular-nums; }
+  .wk-col { position: relative; border-right: 1px solid var(--line); }
+  .wk-col:last-child { border-right: none; }
+  .wk-col .line { position: absolute; left: 0; right: 0; border-top: 1px solid var(--line); opacity: .6; }
+  .wk-ev { position: absolute; border-radius: 7px; padding: 4px 6px; overflow: hidden; background: var(--tw); border-left: 3px solid var(--tc); box-shadow: var(--shadow); cursor: default; }
+  .wk-ev .ev-t { font-size: 11px; color: var(--tc); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .wk-ev .ev-n { font-size: 12px; font-weight: 600; line-height: 1.2; color: var(--ink); }
+  .wk-ev .ev-loc { font-size: 10.5px; color: var(--muted); }
+  .wk-empty { color: var(--muted); padding: 30px 4px; }
+
+  /* SF interactive map */
+  #sf-map { height: 460px; margin-top: 6px; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); position: relative; z-index: 0; }
+  .map-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 12px 0 0; }
+  .map-hint { color: var(--muted); font-size: 13px; margin: 8px 0 0; }
+  .map-hint a { color: var(--accent-ink); }
+  .leaflet-popup-content { margin: 10px 12px; font-size: 13.5px; line-height: 1.45; }
+  .leaflet-container { font: inherit; }
+
+  /* Notes from previous students */
+  .note-list { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; }
+  .note-list li { margin: 6px 0; line-height: 1.45; }
+  .note-list li::marker { color: var(--accent); }
+
+  /* Generic cards */
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow); }
+  .grid { display: grid; gap: 14px; }
+  @media (min-width: 640px) { .grid.two { grid-template-columns: 1fr 1fr; } }
+
+  /* Rotations table */
+  .search-input { width: 100%; max-width: 420px; margin: 20px 0 6px; padding: 10px 14px; font: inherit; font-size: 15px; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+  .search-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+  .rot-count { color: var(--muted); font-size: 13px; margin: 4px 0 12px; }
+  #rot-source a { color: var(--accent-ink); }
+  .rot-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 760px; }
+  .rot-table th { position: sticky; top: 0; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 700; background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  .rot-table td { padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .rot-table tbody tr:hover { background: var(--surface-2); }
+  .rot-table td.name { font-weight: 650; color: var(--ink); white-space: nowrap; }
+  .rot-table td.year { white-space: nowrap; }
+  .rot-table td.year span { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: .03em; color: var(--accent-ink); background: var(--surface-2); border: 1px solid var(--line); }
+  .rot-table td.thesis { font-weight: 600; }
+  .rot-table td.blank { color: var(--muted); }
+  .rot-table a { color: var(--accent-ink); text-decoration: none; }
+  .rot-table a:hover { text-decoration: underline; }
+  .rot-noresults { color: var(--muted); padding: 24px 4px; }
+
+  /* Seminars */
+  .sem { display: grid; grid-template-columns: 74px 1fr; gap: 16px; align-items: start; }
+  .sem .datebox { text-align: center; background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 8px 4px; }
+  .sem .datebox .mo { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent-ink); font-weight: 700; }
+  .sem .datebox .dy { font-size: 22px; font-weight: 700; line-height: 1.1; }
+  .sem .datebox .wd { font-size: 11px; color: var(--muted); }
+  .sem h3 { margin: 0 0 4px; font-size: 16px; }
+  .sem .series { display:inline-block; font-size: 11.5px; font-weight: 600; color: var(--muted); border: 1px solid var(--line); padding: 1px 8px; border-radius: 999px; margin-bottom: 6px; }
+  .sem-note { color: var(--muted); font-size: 13.5px; margin: 16px 0 0; }
+  .generated { color: var(--muted); font-size: 12.5px; margin-top: 4px; }
+  .sem-table td.talk { font-weight: 600; color: var(--ink); }
+  .sem-table td .blank { color: var(--muted); }
+  /* Talk/seminar resource directory */
+  #sem-directory { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 22px 28px; align-items: start; margin: 4px 0 8px; }
+  .sem-dir-group { min-width: 0; }
+  .sem-dir-h { font-size: 12px; text-transform: uppercase; letter-spacing: .07em; color: var(--accent-ink); font-weight: 700; margin: 0 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--line); }
+  .sem-dir-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .sem-dir-list li { font-size: 14px; line-height: 1.4; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+  .sem-dir-list a.res { color: var(--accent-ink); font-weight: 650; text-decoration: none; }
+  .sem-dir-list a.res:hover { text-decoration: underline; }
+  .sem-dir-list a.ics-link { font-size: 10.5px; font-weight: 700; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 1px 7px; margin-left: 6px; text-decoration: none; white-space: nowrap; }
+  .sem-dir-note { display: block; color: var(--muted); font-size: 12.5px; margin-top: 3px; }
+
+  /* People table */
+  .people { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  .people th { text-align: left; font-size: 11.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; padding: 0 12px 8px 0; }
+  .people td { padding: 9px 12px 9px 0; border-top: 1px solid var(--line); vertical-align: top; }
+  .people td .role { font-weight: 600; }
+  .table-scroll { overflow-x: auto; }
+
+  /* Checklists */
+  .check { list-style: none; margin: 6px 0 0; padding: 0; }
+  .check li { display: flex; gap: 10px; align-items: flex-start; padding: 7px 0; font-size: 14.5px; color: var(--ink); }
+  .check li::before { content: ""; width: 16px; height: 16px; margin-top: 3px; border: 1.5px solid var(--muted); border-radius: 4px; flex: none; }
+  .li-body { min-width: 0; }
+  .li-body a { font-weight: 600; }
+  .li-info { color: var(--muted); font-size: 12.5px; font-weight: 400; margin-top: 2px; line-height: 1.4; }
+
+  /* Links-style logistics list (no checkboxes) */
+  .link-list { list-style: none; margin: 6px 0 0; padding: 0; }
+  .link-list li { padding: 9px 0; border-top: 1px solid var(--line); font-size: 14.5px; }
+  .link-list li:first-child { border-top: none; }
+  .link-list li::before { content: "↗"; color: var(--accent); margin-right: 8px; font-weight: 700; }
+  .link-list a { font-weight: 600; }
+
+  /* Timeline */
+  .timeline { position: relative; margin: 10px 0 0; padding-left: 26px; }
+  .timeline::before { content: ""; position: absolute; left: 6px; top: 4px; bottom: 4px; width: 2px; background: var(--line); }
+  .tl-item { position: relative; padding: 0 0 22px; }
+  .tl-item::before { content: ""; position: absolute; left: -26px; top: 3px; width: 14px; height: 14px; border-radius: 999px; background: var(--accent); border: 3px solid var(--paper); }
+  .tl-when { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--accent-ink); }
+  .tl-item h3 { margin: 2px 0 3px; font-size: 16px; }
+  .tl-item p { margin: 0; color: var(--muted); font-size: 14.5px; }
+
+  /* FAQ accordion */
+  .acc { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); box-shadow: var(--shadow); }
+  .acc + .acc { margin-top: 10px; }
+  .acc-q { appearance: none; width: 100%; text-align: left; background: none; border: none; font: inherit; font-size: 15.5px; font-weight: 600; color: var(--ink); padding: 15px 18px; cursor: pointer; display: flex; justify-content: space-between; gap: 12px; align-items: center; list-style: none; }
+  .acc-q::-webkit-details-marker { display: none; }
+  .acc-q svg { width: 18px; height: 18px; stroke: var(--muted); fill: none; transition: transform .18s; flex: none; }
+  .acc[open] .acc-q svg { transform: rotate(180deg); }
+  .acc-a { padding: 0 18px 16px; color: var(--muted); font-size: 14.5px; max-width: 68ch; }
+
+  /* Theme toggle */
+  .theme-toggle { position: fixed; bottom: 20px; right: 20px; z-index: 50; width: 42px; height: 42px; border-radius: 999px; cursor: pointer; background: var(--surface); border: 1px solid var(--line); color: var(--ink); box-shadow: var(--shadow); display: grid; place-items: center; }
+  .theme-toggle svg { width: 19px; height: 19px; stroke: var(--ink); fill: none; }
+
+  footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; padding: 26px 0 60px; }
+
+  @media (max-width: 560px) {
+    .event { grid-template-columns: 62px 1fr; gap: 12px; padding: 14px; }
+    .event .time { font-size: 13px; padding-right: 10px; }
+    header.masthead { padding-top: 34px; }
+  }
+</style>
+  <!-- Leaflet (interactive map) — loaded from CDN; the map needs internet, the rest of the site does not -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow" id="hdr-eyebrow"></p>
+    <h1 class="title" id="hdr-title"></h1>
+    <p class="lede" id="hdr-lede"></p>
+    <div class="meta-row" id="hdr-meta"></div>
+  </div>
+</header>
+
+<nav class="tabbar" aria-label="Sections">
+  <div class="wrap"><div class="tabbar-inner" id="tabbar" role="tablist"></div></div>
+</nav>
+
+<main class="wrap">
+  <section class="panel" id="panel-schedule" role="tabpanel">
+    <p class="panel-intro" id="sched-intro"></p>
+    <div class="view-toggle" id="view-toggle" role="group" aria-label="Schedule view">
+      <button class="vt-btn" data-view="week" aria-pressed="true">Week</button>
+      <button class="vt-btn" data-view="list" aria-pressed="false">List</button>
+    </div>
+    <div class="chip-row" id="track-filters"><span class="chip-label">Filter</span></div>
+    <div id="view-list" hidden>
+      <div id="schedule"></div>
+      <p class="empty" id="sched-empty">No sessions match the selected filters.</p>
+    </div>
+    <div id="view-week">
+      <div class="wk-nav">
+        <button class="wk-arrow" id="wk-prev" aria-label="Previous week">&larr;</button>
+        <span class="wk-label" id="wk-label"></span>
+        <button class="wk-arrow" id="wk-next" aria-label="Next week">&rarr;</button>
+      </div>
+      <div class="wk-scroll"><div id="week-grid"></div></div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-rotations" role="tabpanel">
+    <p class="panel-intro">Where past students rotated and landed for their thesis lab. Search by student, PI, or lab. <span id="rot-source"></span></p>
+    <input type="search" id="rot-search" class="search-input" placeholder="Search students, PIs, or thesis labs…" aria-label="Search rotations" autocomplete="off" />
+    <p class="rot-count" id="rot-count"></p>
+    <div class="table-scroll"><table class="rot-table" id="rot-table"></table></div>
+  </section>
+
+  <section class="panel" id="panel-seminars" role="tabpanel">
+    <p class="panel-intro">Guest lectures and seminars around UCSF you're welcome to attend. Browse the standing series and event calendars below, then scan upcoming talks in the table.</p>
+
+    <h2 class="section-head">Talk &amp; seminar calendars across UCSF</h2>
+    <p class="panel-intro" style="margin-top:2px">Every program runs its own series — this is a directory of their calendars. Bookmark the ones near your interests; “iCal” links are subscribable feeds you can add to your calendar.</p>
+    <div id="sem-directory"></div>
+
+    <h2 class="section-head">Upcoming talks</h2>
+    <p class="generated" id="sem-generated"></p>
+    <input type="search" id="sem-search" class="search-input" placeholder="Search talks by topic, series, or speaker…" aria-label="Search talks" autocomplete="off" />
+    <p class="rot-count" id="sem-count"></p>
+    <div class="table-scroll"><table class="rot-table sem-table" id="sem-table"></table></div>
+    <p class="sem-note" id="sem-note"></p>
+  </section>
+
+  <section class="panel" id="panel-logistics" role="tabpanel">
+    <p class="panel-intro">Who to ask for what, and the checklists to get set up.</p>
+    <h2 class="section-head">Who to ask</h2>
+    <div class="card table-scroll"><table class="people" id="people"></table></div>
+    <h2 class="section-head">Checklists &amp; links</h2>
+    <div class="grid two" id="logistics"></div>
+  </section>
+
+  <section class="panel" id="panel-sf" role="tabpanel">
+    <p class="panel-intro">Recommendations and advice from a survey of current BMI students.</p>
+    <h2 class="section-head">Explore the map</h2>
+    <div class="chip-row" id="map-filters"><span class="chip-label">Show</span></div>
+    <div id="sf-map"></div>
+    <div class="map-actions">
+      <button class="cal-btn" id="dl-geojson" type="button">⭳ GeoJSON</button>
+      <button class="cal-btn" id="dl-kml" type="button">⭳ KML for Google My Maps</button>
+      <span class="map-hint" id="map-hint"></span>
+    </div>
+    <p class="map-hint" id="sf-unmapped"></p>
+    <h2 class="section-head">Notes from previous students</h2>
+    <div class="grid two" id="notes"></div>
+    <p class="generated" id="notes-source"></p>
+  </section>
+
+  <section class="panel" id="panel-timeline" role="tabpanel">
+    <p class="panel-intro">How the rotation is paced, and answers to common questions.</p>
+    <h2 class="section-head">Rotation timeline</h2>
+    <div class="timeline" id="timeline"></div>
+    <h2 class="section-head">FAQ</h2>
+    <div id="faq"></div>
+  </section>
+</main>
+
+<footer class="wrap"><span id="foot-note"></span></footer>
+
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle light / dark theme" title="Toggle theme">
+  <svg id="theme-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
+</button>
+
+<script src="data/content.js"></script>
+<script src="data/seminars.js"></script>
+<script src="data/sf_places.js"></script>
+<script>
+(function () {
+  "use strict";
+  const O = window.ORIENTATION || {};
+  const CONFIG = O.CONFIG || {};
+  const TRACKS = O.TRACKS || [];
+  const EVENTS = O.EVENTS || [];
+  const trackMap = Object.fromEntries(TRACKS.map(t => [t.key, t]));
+
+  const pad = n => String(n).padStart(2, "0");
+  const esc = s => String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const MON3 = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const WD = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  const WD3 = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+  function ymd(dateStr){ const [y,m,d]=dateStr.split("-").map(Number); return {y,m,d}; }
+  function weekdayIdx(dateStr){ const {y,m,d}=ymd(dateStr); return new Date(Date.UTC(y,m-1,d)).getUTCDay(); }
+  function dayLabel(dateStr){ const {y,m,d}=ymd(dateStr); return { weekday: WD[weekdayIdx(dateStr)], dateText: `${MONTHS[m-1]} ${d}, ${y}` }; }
+  function fmtTime(t){ let [h,m]=t.split(":").map(Number); const ap=h>=12?"PM":"AM"; h=h%12||12; return m===0?`${h} ${ap}`:`${h}:${pad(m)} ${ap}`; }
+  function floatStamp(dateStr,t){ const {y,m,d}=ymd(dateStr); const [hh,mm]=t.split(":").map(Number); return `${y}${pad(m)}${pad(d)}T${pad(hh)}${pad(mm)}00`; }
+  function dateStamp(dateStr){ const {y,m,d}=ymd(dateStr); return `${y}${pad(m)}${pad(d)}`; }
+  function nextDayStamp(dateStr){ const {y,m,d}=ymd(dateStr); const dt=new Date(Date.UTC(y,m-1,d+1)); return `${dt.getUTCFullYear()}${pad(dt.getUTCMonth()+1)}${pad(dt.getUTCDate())}`; }
+  function dateObj(dateStr){ const {y,m,d}=ymd(dateStr); return new Date(Date.UTC(y,m-1,d)); }
+  function isoOf(dt){ return `${dt.getUTCFullYear()}-${pad(dt.getUTCMonth()+1)}-${pad(dt.getUTCDate())}`; }
+  function mondayOf(dateStr){ const dt=dateObj(dateStr); const off=(dt.getUTCDay()+6)%7; dt.setUTCDate(dt.getUTCDate()-off); return dt; }
+  function toMin(t){ const [h,m]=t.split(":").map(Number); return h*60+m; }
+  function fmtHour(h){ const ap=h>=12?"PM":"AM"; return `${h%12||12} ${ap}`; }
+
+  const ICON = {
+    pin:'<svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+    person:'<svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
+    plus:'<svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>',
+    download:'<svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>',
+    cal:'<svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>',
+    link:'<svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>',
+    chev:'<svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>',
+    sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+    moon:'<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>',
+  };
+
+  /* ---------- Header ---------- */
+  document.getElementById("hdr-eyebrow").textContent = CONFIG.eyebrow || "";
+  document.getElementById("hdr-title").textContent = CONFIG.title || "Orientation";
+  document.getElementById("hdr-lede").textContent = CONFIG.lede || "";
+  document.title = (CONFIG.title || "Orientation") + " — Schedule";
+
+  const dates = [...new Set(EVENTS.map(e=>e.date))].sort();
+  const span = dates.length ? (dates.length===1 ? dayLabel(dates[0]).dateText
+    : `${dayLabel(dates[0]).dateText} – ${dayLabel(dates[dates.length-1]).dateText}`) : "";
+  document.getElementById("hdr-meta").innerHTML =
+    (span?`<span>📅 <b>${esc(span)}</b></span>`:``) +
+    (CONFIG.location?`<span>📍 <b>${esc(CONFIG.location)}</b></span>`:``) +
+    (CONFIG.tzLabel?`<span>🕑 All times <b>${esc(CONFIG.tzLabel)}</b></span>`:``);
+  document.getElementById("foot-note").textContent =
+    `Times shown in ${CONFIG.tzLabel||"local time"}${CONFIG.timezone?` (${CONFIG.timezone})`:``}. Edit content in data/content.js; refresh seminars with scripts/refresh_seminars.py.`;
+  document.getElementById("sched-intro").textContent =
+    "The orientation runs " + (span||"over the listed days") + ". Filter by track and add any session to your calendar.";
+
+  /* ---------- Tabs ---------- */
+  const TABS = [
+    { id:"schedule",  label:"Schedule" },
+    { id:"logistics", label:"Logistics" },
+    { id:"seminars",  label:"Seminars & Talks" },
+    { id:"rotations", label:"BMI Student Info" },
+    { id:"sf",        label:"Around SF & Notes" },
+  ];
+  const tabbar = document.getElementById("tabbar");
+  TABS.forEach(t => {
+    const b = document.createElement("button");
+    b.className = "tab"; b.id = "tab-"+t.id; b.textContent = t.label;
+    b.setAttribute("role","tab"); b.setAttribute("aria-controls","panel-"+t.id);
+    b.addEventListener("click", () => selectTab(t.id, true));
+    tabbar.appendChild(b);
+  });
+  function selectTab(id, push){
+    if (!TABS.some(t=>t.id===id)) id = TABS[0].id;
+    TABS.forEach(t => {
+      document.getElementById("tab-"+t.id).setAttribute("aria-selected", t.id===id ? "true":"false");
+      document.getElementById("panel-"+t.id).classList.toggle("active", t.id===id);
+    });
+    if (id === "sf") initSfMap();  // Leaflet needs a visible container to size correctly
+    if (push && location.hash !== "#"+id) history.replaceState(null,"","#"+id);
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
+
+  /* ---------- Schedule ---------- */
+  const activeTracks = new Set(TRACKS.map(t=>t.key));
+  const filterRow = document.getElementById("track-filters");
+  TRACKS.forEach(t => {
+    const b = document.createElement("button");
+    b.className="chip"; b.dataset.track=t.key; b.setAttribute("aria-pressed","true");
+    b.style.setProperty("--td", `var(--t-${t.color})`);
+    b.innerHTML = `<span class="dot"></span>${esc(t.label)}`;
+    b.addEventListener("click", () => {
+      const on = b.getAttribute("aria-pressed")==="true";
+      b.setAttribute("aria-pressed", on?"false":"true");
+      if (on) activeTracks.delete(t.key); else activeTracks.add(t.key);
+      applyScheduleFilter();
+    });
+    filterRow.appendChild(b);
+  });
+
+  const schedule = document.getElementById("schedule");
+  dates.forEach((d,i) => {
+    const dl = dayLabel(d);
+    const sec = document.createElement("section");
+    sec.className="day"; sec.id="day-"+i;
+    sec.innerHTML = `<div class="day-head"><h2>${dates.length>1?`Day ${i+1}`:esc(dl.weekday)}</h2>
+      <span class="day-date">${dates.length>1?esc(dl.weekday+", "+dl.dateText):esc(dl.dateText)}</span></div><div class="day-rule"></div>`;
+    EVENTS.filter(e=>e.date===d).sort((a,b)=>(a.start||"").localeCompare(b.start||"")).forEach(e=>sec.appendChild(renderEvent(e)));
+    schedule.appendChild(sec);
+  });
+
+  function renderEvent(e){
+    const t = trackMap[e.track] || { label:e.track, color:1 };
+    const el = document.createElement("article");
+    el.className="event"; el.dataset.track=e.track;
+    el.style.setProperty("--tc",`var(--t-${t.color})`); el.style.setProperty("--tw",`var(--t-${t.color}-wash)`);
+    const facts=[];
+    if (e.location) facts.push(`<span>${ICON.pin}${esc(e.location)}</span>`);
+    if (e.speaker) facts.push(`<span>${ICON.person}${esc(e.speaker)}</span>`);
+    let timeHtml;
+    if (e.allDay) timeHtml = `<span class="allday">All day</span>`;
+    else if (!e.start) timeHtml = `<span class="allday">Time TBD</span>`;
+    else timeHtml = `${esc(fmtTime(e.start))}${e.end?`<span class="end">${esc(fmtTime(e.end))}</span>`:``}`;
+    const showCal = !e.hideCal;
+    el.innerHTML = `<div class="time">${timeHtml}</div>
+      <div class="body">
+        <span class="track-chip"><span class="dot"></span>${esc(t.label)}</span>
+        <h3>${esc(e.title)}</h3>
+        ${e.desc?`<p class="desc">${esc(e.desc)}</p>`:``}
+        ${facts.length?`<div class="facts">${facts.join("")}</div>`:``}
+        ${showCal?`<div class="cal">
+          <button class="cal-btn" type="button">${ICON.plus}Add to calendar</button>
+          <div class="cal-menu" role="menu">
+            <a role="menuitem" target="_blank" rel="noopener" class="gcal">${ICON.cal}Google Calendar</a>
+            <a role="menuitem" class="ics">${ICON.download}Download .ics</a>
+          </div>
+        </div>`:``}
+      </div>`;
+    if (showCal) {
+      const btn=el.querySelector(".cal-btn"), menu=el.querySelector(".cal-menu");
+      const gcal=el.querySelector(".gcal"), ics=el.querySelector(".ics");
+      gcal.href = googleUrl(e);
+      ics.addEventListener("click", ev=>{ ev.preventDefault(); downloadIcs(e); menu.classList.remove("open"); });
+      btn.addEventListener("click", ev=>{ ev.stopPropagation(); const open=menu.classList.contains("open"); closeMenus(); if(!open) menu.classList.add("open"); });
+      gcal.addEventListener("click", ()=>menu.classList.remove("open"));
+    }
+    return el;
+  }
+  function closeMenus(){ document.querySelectorAll(".cal-menu.open").forEach(m=>m.classList.remove("open")); }
+  document.addEventListener("click", closeMenus);
+  document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeMenus(); });
+
+  function detailsText(e){
+    const t=trackMap[e.track]; const p=[];
+    if (e.desc) p.push(e.desc);
+    if (t) p.push("Track: "+t.label);
+    if (e.speaker) p.push("Speaker: "+e.speaker);
+    return p.join("\n\n");
+  }
+  function googleUrl(e){
+    const allDay = e.allDay || !e.start;
+    const dates = allDay
+      ? `${dateStamp(e.date)}/${nextDayStamp(e.date)}`
+      : `${floatStamp(e.date,e.start)}/${floatStamp(e.date,e.end||e.start)}`;
+    const p = new URLSearchParams({ action:"TEMPLATE", text:e.title, dates,
+      details:detailsText(e), location:e.location||CONFIG.location||"", ctz:CONFIG.timezone||"" });
+    return "https://calendar.google.com/calendar/render?"+p.toString();
+  }
+  function icsBlob(e){
+    const uid = `${e.date}-${e.start||"allday"}-${(e.title||"").replace(/\W+/g,"").slice(0,20)}@orientation`;
+    const fold = s=>String(s).replace(/([,;\\])/g,"\\$1").replace(/\n/g,"\\n");
+    const allDay = e.allDay || !e.start;
+    const tz = CONFIG.timezone ? `;TZID=${CONFIG.timezone}` : "";
+    const dtLines = allDay
+      ? [`DTSTART;VALUE=DATE:${dateStamp(e.date)}`, `DTEND;VALUE=DATE:${nextDayStamp(e.date)}`]
+      : [`DTSTART${tz}:${floatStamp(e.date,e.start)}`, `DTEND${tz}:${floatStamp(e.date,e.end||e.start)}`];
+    const lines = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Orientation//EN","CALSCALE:GREGORIAN","BEGIN:VEVENT",
+      `UID:${uid}`, `SUMMARY:${fold(e.title||"")}`, ...dtLines,
+      e.location?`LOCATION:${fold(e.location)}`:"", `DESCRIPTION:${fold(detailsText(e))}`,
+      "END:VEVENT","END:VCALENDAR"].filter(Boolean);
+    return new Blob([lines.join("\r\n")], { type:"text/calendar;charset=utf-8" });
+  }
+  function downloadIcs(e){
+    const url = URL.createObjectURL(icsBlob(e));
+    const a = document.createElement("a");
+    a.href=url; a.download=`${(e.title||"event").replace(/[^\w]+/g,"-").toLowerCase()}.ics`;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+  }
+  function applyScheduleFilter(){
+    document.querySelectorAll(".event").forEach(el=>el.classList.toggle("hidden", !activeTracks.has(el.dataset.track)));
+    let any=false;
+    document.querySelectorAll(".day").forEach(sec=>{ const v=sec.querySelectorAll(".event:not(.hidden)").length; sec.style.display=v?"":"none"; if(v)any=true; });
+    document.getElementById("sched-empty").classList.toggle("show", !any);
+    if (currentView === "week") renderWeek();
+  }
+
+  /* ---------- Week calendar view ---------- */
+  let currentView = "week";
+  const HOURH = 56;
+  const weekStarts = [...new Set(dates.map(d => isoOf(mondayOf(d))))].sort();
+  let weekIdx = 0;
+
+  // grid hour bounds from the timed events (padded to a sensible default window)
+  let gMin = 8*60, gMax = 17*60;
+  EVENTS.filter(e=>!e.allDay && e.start).forEach(e=>{ gMin=Math.min(gMin,toMin(e.start)); gMax=Math.max(gMax,toMin(e.end||e.start)); });
+  const startHour = Math.floor(gMin/60), endHour = Math.ceil(gMax/60);
+
+  function layoutColumns(evs){
+    let clusters=[], cur=[], curEnd=-1;
+    evs.forEach(e=>{ const s=toMin(e.start); if(cur.length && s>=curEnd){ clusters.push(cur); cur=[]; curEnd=-1; } cur.push(e); curEnd=Math.max(curEnd,toMin(e.end||e.start)); });
+    if(cur.length) clusters.push(cur);
+    clusters.forEach(cl=>{
+      const colEnd=[];
+      cl.forEach(e=>{ const s=toMin(e.start), en=toMin(e.end||e.start); let c=colEnd.findIndex(x=>x<=s); if(c===-1){ c=colEnd.length; colEnd.push(en);} else colEnd[c]=en; e._col=c; });
+      cl.forEach(e=> e._ncols=colEnd.length);
+    });
+  }
+
+  function renderWeek(){
+    const grid=document.getElementById("week-grid");
+    if(!weekStarts.length){ grid.innerHTML=`<p class="wk-empty">No events scheduled.</p>`; return; }
+    const monISO=weekStarts[weekIdx];
+    const mon=dateObj(monISO);
+    const weekEvents=EVENTS.filter(e=> activeTracks.has(e.track) && isoOf(mondayOf(e.date))===monISO);
+    let ndays=5;
+    weekEvents.forEach(e=>{ const off=(dateObj(e.date).getUTCDay()+6)%7; if(off>=5) ndays=7; });
+    const days=[];
+    for(let i=0;i<ndays;i++){ const dt=new Date(mon.getTime()); dt.setUTCDate(mon.getUTCDate()+i); days.push(isoOf(dt)); }
+
+    const d0=dateObj(days[0]), dN=dateObj(days[days.length-1]);
+    document.getElementById("wk-label").textContent=`${MON3[d0.getUTCMonth()]} ${d0.getUTCDate()} – ${MON3[dN.getUTCMonth()]} ${dN.getUTCDate()}, ${dN.getUTCFullYear()}`;
+    document.getElementById("wk-prev").disabled = weekIdx<=0;
+    document.getElementById("wk-next").disabled = weekIdx>=weekStarts.length-1;
+
+    const bodyH=(endHour-startHour)*HOURH;
+
+    let head=`<div class="wk-head"><div class="wk-gtr"></div>`;
+    days.forEach(dISO=>{ const dt=dateObj(dISO); head+=`<div class="wk-dh"><div class="wd">${WD3[dt.getUTCDay()]}</div><div class="dd">${dt.getUTCDate()}</div></div>`; });
+    head+=`</div>`;
+
+    let ad=`<div class="wk-allday"><div class="wk-gtr">all-day</div>`;
+    days.forEach(dISO=>{
+      const items=weekEvents.filter(e=> e.date===dISO && (e.allDay || !e.start));
+      ad+=`<div class="wk-adcell">`+items.map(e=>{ const t=trackMap[e.track]||{color:1}; return `<span class="ad-chip" style="--tc:var(--t-${t.color});--tw:var(--t-${t.color}-wash)" title="${esc(e.title)}">${esc(e.title)}</span>`; }).join("")+`</div>`;
+    });
+    ad+=`</div>`;
+
+    let times=`<div class="wk-times" style="height:${bodyH}px">`;
+    for(let h=startHour;h<=endHour;h++){ times+=`<div class="hr" style="top:${(h-startHour)*HOURH}px">${fmtHour(h)}</div>`; }
+    times+=`</div>`;
+
+    let cols="";
+    days.forEach(dISO=>{
+      const timed=weekEvents.filter(e=> e.date===dISO && !e.allDay && e.start).sort((a,b)=>toMin(a.start)-toMin(b.start));
+      layoutColumns(timed);
+      let col=`<div class="wk-col" style="height:${bodyH}px">`;
+      for(let h=startHour;h<=endHour;h++){ col+=`<div class="line" style="top:${(h-startHour)*HOURH}px"></div>`; }
+      timed.forEach(e=>{
+        const s=toMin(e.start), en=toMin(e.end||e.start);
+        const top=(s-startHour*60)/60*HOURH;
+        const hgt=Math.max(26,(en-s)/60*HOURH-2);
+        const w=100/(e._ncols||1), left=(e._col||0)*w;
+        const t=trackMap[e.track]||{color:1};
+        col+=`<div class="wk-ev" style="top:${top}px;height:${hgt}px;left:calc(${left}% + 2px);width:calc(${w}% - 4px);--tc:var(--t-${t.color});--tw:var(--t-${t.color}-wash)" title="${esc(e.title)} · ${esc(fmtTime(e.start))}${e.end?"–"+esc(fmtTime(e.end)):""}">
+          <div class="ev-t">${esc(fmtTime(e.start))}</div>
+          <div class="ev-n">${esc(e.title)}</div>
+          ${e.location?`<div class="ev-loc">${esc(e.location)}</div>`:``}
+        </div>`;
+      });
+      col+=`</div>`;
+      cols+=col;
+    });
+
+    grid.innerHTML=`<div class="wk" style="--ncols:${ndays}">${head}${ad}<div class="wk-body">${times}${cols}</div></div>`;
+  }
+
+  document.getElementById("wk-prev").addEventListener("click",()=>{ if(weekIdx>0){ weekIdx--; renderWeek(); } });
+  document.getElementById("wk-next").addEventListener("click",()=>{ if(weekIdx<weekStarts.length-1){ weekIdx++; renderWeek(); } });
+  document.querySelectorAll(".vt-btn").forEach(b=>{
+    b.addEventListener("click",()=>{
+      currentView=b.dataset.view;
+      document.querySelectorAll(".vt-btn").forEach(x=>x.setAttribute("aria-pressed", x===b?"true":"false"));
+      document.getElementById("view-list").hidden = currentView!=="list";
+      document.getElementById("view-week").hidden = currentView!=="week";
+      if(currentView==="week") renderWeek();
+    });
+  });
+
+  /* ---------- Rotations (searchable table) ---------- */
+  const ROT = O.ROTATIONS || [];
+  const ROT_HEADERS = ["Name","Year","Rotation 1","Rotation 2","Rotation 3","Rotation 4","Thesis Lab","Contact"];
+  const rotTable = document.getElementById("rot-table");
+  const rotCount = document.getElementById("rot-count");
+  if (O.ROTATIONS_SOURCE) {
+    document.getElementById("rot-source").innerHTML =
+      `Source: <a href="${esc(O.ROTATIONS_SOURCE)}" target="_blank" rel="noopener">rotation history spreadsheet</a>.`;
+  }
+  function contactCell(v){
+    if (!v) return `<span class="blank">—</span>`;
+    return /@/.test(v) ? `<a href="mailto:${esc(v)}">${esc(v)}</a>` : esc(v);
+  }
+  function renderRotations(query){
+    const q = (query||"").trim().toLowerCase();
+    const rows = ROT.filter(r => !q || r.some(cell => String(cell).toLowerCase().includes(q)));
+    const head = `<thead><tr>${ROT_HEADERS.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead>`;
+    const body = rows.length
+      ? `<tbody>${rows.map(r=>{
+          const cells = r.map((cell,i)=>{
+            if (i===r.length-1) return `<td>${contactCell(cell)}</td>`;
+            if (i===1) return `<td class="year">${cell ? `<span>${esc(cell)}</span>` : `<span class="blank">—</span>`}</td>`;
+            const cls = i===0 ? "name" : (i===r.length-2 ? "thesis" : "");
+            const val = cell ? esc(cell) : `<span class="blank">—</span>`;
+            return `<td class="${cls}">${val}</td>`;
+          }).join("");
+          return `<tr>${cells}</tr>`;
+        }).join("")}</tbody>`
+      : `<tbody><tr><td colspan="8" class="rot-noresults">No students match “${esc(query)}”.</td></tr></tbody>`;
+    rotTable.innerHTML = head + body;
+    rotCount.textContent = q ? `${rows.length} of ${ROT.length} students` : `${ROT.length} students`;
+  }
+  renderRotations("");
+  document.getElementById("rot-search").addEventListener("input", e => renderRotations(e.target.value));
+
+  /* ---------- Seminars ---------- */
+  // Directory of standing talk/seminar calendars across UCSF & nearby institutes.
+  const RES = O.TALK_RESOURCES || [];
+  const dirWrap = document.getElementById("sem-directory");
+  dirWrap.innerHTML = RES.map(g=>`
+    <div class="sem-dir-group">
+      <h3 class="sem-dir-h">${esc(g.group)}</h3>
+      <ul class="sem-dir-list">
+        ${g.items.map(it=>`<li>
+          ${it.url?`<a class="res" href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.name)}</a>`:`<span class="res">${esc(it.name)}</span>`}${it.ics?`<a class="ics-link" href="${esc(it.ics)}" target="_blank" rel="noopener" title="Subscribe (iCal feed)">iCal</a>`:``}
+          ${it.note?`<span class="sem-dir-note">${esc(it.note)}</span>`:``}
+        </li>`).join("")}
+      </ul>
+    </div>`).join("");
+
+  // Upcoming talks — searchable table (refreshed by scripts/refresh_seminars.py).
+  const SEM = (window.SEMINARS && window.SEMINARS.items) || [];
+  const genEl = document.getElementById("sem-generated");
+  if (window.SEMINARS && window.SEMINARS.generated) genEl.textContent = "Upcoming-talks list last refreshed " + window.SEMINARS.generated + ".";
+  const semSorted = [...SEM].sort((a,b)=>(a.date+(a.start||"")).localeCompare(b.date+(b.start||"")));
+  const semTable = document.getElementById("sem-table");
+  const semCount = document.getElementById("sem-count");
+  const semSearch = document.getElementById("sem-search");
+  const SEM_HEADERS = ["Date","Time","Talk","Series","Speaker","Location",""];
+  function renderSeminars(query){
+    const q = (query||"").trim().toLowerCase();
+    const rows = semSorted.filter(s => !q || [s.title,s.series,s.speaker,s.location].some(v=>String(v||"").toLowerCase().includes(q)));
+    const head = `<thead><tr>${SEM_HEADERS.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead>`;
+    const body = rows.length
+      ? `<tbody>${rows.map(s=>{
+          const {m,d}=ymd(s.date); const wd=WD3[weekdayIdx(s.date)];
+          const time = s.start ? `${fmtTime(s.start)}${s.end?"–"+fmtTime(s.end):""}` : `<span class="blank">—</span>`;
+          const dash = `<span class="blank">—</span>`;
+          return `<tr>
+            <td class="name" style="white-space:nowrap">${esc(wd+" "+MON3[m-1]+" "+d)}</td>
+            <td style="white-space:nowrap">${time}</td>
+            <td class="talk">${esc(s.title)}</td>
+            <td>${s.series?esc(s.series):dash}</td>
+            <td>${s.speaker?esc(s.speaker):dash}</td>
+            <td>${s.location?esc(s.location):dash}</td>
+            <td>${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">Details</a>`:dash}</td>
+          </tr>`;
+        }).join("")}</tbody>`
+      : `<tbody><tr><td colspan="7" class="rot-noresults">No talks match “${esc(query)}”.</td></tr></tbody>`;
+    semTable.innerHTML = head + body;
+    semCount.textContent = q ? `${rows.length} of ${semSorted.length} talks` : `${semSorted.length} upcoming talks`;
+  }
+  if (!semSorted.length){
+    semSearch.style.display = "none";
+    semTable.innerHTML = "";
+    document.getElementById("sem-note").textContent = "No upcoming talks loaded yet — the directory above is the reliable source. To populate this table, add real feeds to scripts/sources.json and run scripts/refresh_seminars.py.";
+  } else {
+    renderSeminars("");
+    semSearch.addEventListener("input", e=>renderSeminars(e.target.value));
+    document.getElementById("sem-note").textContent = "Always confirm time and location on the host's page before attending.";
+  }
+
+  /* ---------- Logistics ---------- */
+  const PEOPLE = O.PEOPLE || [];
+  const peopleTable = document.getElementById("people");
+  peopleTable.innerHTML = `<thead><tr><th>Role</th><th>Name</th><th>Ask about</th></tr></thead><tbody>` +
+    PEOPLE.map(p=>`<tr><td class="role">${esc(p.role)}</td><td>${esc(p.name)}${p.contact?`<br><span style="color:var(--muted);font-size:13px">${esc(p.contact)}</span>`:``}</td><td style="color:var(--muted)">${esc(p.forWhat)}</td></tr>`).join("") +
+    `</tbody>`;
+  const LOG = O.LOGISTICS || [];
+  const logWrap = document.getElementById("logistics");
+  LOG.forEach(l=>{
+    const c=document.createElement("div"); c.className="card";
+    const isLinks = l.type === "links";
+    const items = (l.items||[]).map(it=>{
+      const o = typeof it === "string" ? { text: it } : (it || {});
+      const label = /^https?:\/\//.test(o.url||"")
+        ? `<a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.text)}</a>`
+        : esc(o.text);
+      const info = o.info ? `<div class="li-info">${esc(o.info)}</div>` : "";
+      return `<li><span class="li-body">${label}${info}</span></li>`;
+    }).join("");
+    c.innerHTML = `<h3 style="margin:0 0 8px;font-size:16px">${esc(l.title)}</h3>
+      <ul class="${isLinks ? "link-list" : "check"}">${items}</ul>`;
+    logWrap.appendChild(c);
+  });
+
+  /* ---------- Around SF — interactive map ---------- */
+  const SF_PLACES = (window.SF_PLACES && window.SF_PLACES.items) || [];
+  const SF_CATS = [
+    { key:"restaurant", label:"Restaurants",      color:"#E4572E" },
+    { key:"bar",        label:"Bars",             color:"#8A4B93" },
+    { key:"grocery",    label:"Groceries",        color:"#3F9B54" },
+    { key:"park",       label:"Parks & outdoors", color:"#2E8B7F" },
+    { key:"venue",      label:"Venues & museums", color:"#3D5CC4" },
+    { key:"spot",       label:"Spots & study",    color:"#C99A2E" },
+  ];
+  const catColor = Object.fromEntries(SF_CATS.map(c=>[c.key,c.color]));
+  const catLabel = Object.fromEntries(SF_CATS.map(c=>[c.key,c.label]));
+  const gmapsSearch = name => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name+", San Francisco")}`;
+
+  // Category filter chips
+  const mapFilters = document.getElementById("map-filters");
+  const catVisible = new Set(SF_CATS.map(c=>c.key));
+  SF_CATS.forEach(cat=>{
+    const n = SF_PLACES.filter(p=>p.cat===cat.key && p.lat!=null).length;
+    if(!n) return;
+    const b=document.createElement("button");
+    b.className="chip"; b.setAttribute("aria-pressed","true");
+    b.style.setProperty("--td", cat.color);
+    b.innerHTML=`<span class="dot"></span>${esc(cat.label)} <span style="color:var(--muted);font-weight:400">${n}</span>`;
+    b.addEventListener("click", ()=>{
+      const on=b.getAttribute("aria-pressed")==="true";
+      b.setAttribute("aria-pressed", on?"false":"true");
+      if(on) catVisible.delete(cat.key); else catVisible.add(cat.key);
+      if(sfMap && sfLayers[cat.key]){ if(on) sfMap.removeLayer(sfLayers[cat.key]); else sfLayers[cat.key].addTo(sfMap); }
+    });
+    mapFilters.appendChild(b);
+  });
+
+  // Lazy-initialized Leaflet map (built the first time the tab is shown)
+  let sfMap=null, sfInited=false; const sfLayers={};
+  function initSfMap(){
+    if(sfInited || typeof L==="undefined") return;
+    sfInited=true;
+    sfMap = L.map("sf-map", { scrollWheelZoom:false }).setView([37.7749,-122.4294], 12);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(sfMap);
+    sfMap.on("click", ()=>sfMap.scrollWheelZoom.enable());  // opt-in scroll zoom
+    const bounds=[];
+    SF_CATS.forEach(cat=>{
+      const grp=L.layerGroup();
+      sfLayers[cat.key]=grp;
+      SF_PLACES.filter(p=>p.cat===cat.key && p.lat!=null).forEach(p=>{
+        const m=L.circleMarker([p.lat,p.lng], { radius:7, color:"#fff", weight:1.5, fillColor:cat.color, fillOpacity:1 });
+        m.bindPopup(`<strong>${esc(p.name)}</strong>`
+          + `<br><span style="color:#666">${esc(catLabel[p.cat]||"")}${p.note?" · "+esc(p.note):""}</span>`
+          + `<br><a href="${gmapsSearch(p.name)}" target="_blank" rel="noopener">Open in Google Maps ↗</a>`);
+        m.addTo(grp); bounds.push([p.lat,p.lng]);
+      });
+      if(catVisible.has(cat.key)) grp.addTo(sfMap);
+    });
+    if(bounds.length) sfMap.fitBounds(bounds, { padding:[30,30] });
+    setTimeout(()=>sfMap.invalidateSize(), 60);
+  }
+
+  // Export helpers
+  function downloadFile(filename, text, mime){
+    const blob=new Blob([text],{type:mime}); const url=URL.createObjectURL(blob);
+    const a=document.createElement("a"); a.href=url; a.download=filename;
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),1000);
+  }
+  const locatedPlaces = ()=>SF_PLACES.filter(p=>p.lat!=null);
+  document.getElementById("dl-geojson").addEventListener("click", ()=>{
+    const fc={ type:"FeatureCollection", features: locatedPlaces().map(p=>({
+      type:"Feature", geometry:{ type:"Point", coordinates:[p.lng,p.lat] },
+      properties:{ name:p.name, category:catLabel[p.cat]||p.cat, note:p.note } })) };
+    downloadFile("sf-recommendations.geojson", JSON.stringify(fc,null,2), "application/geo+json");
+  });
+  document.getElementById("dl-kml").addEventListener("click", ()=>{
+    const x=s=>String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    const marks=locatedPlaces().map(p=>`  <Placemark><name>${x(p.name)}</name>`
+      +`<description>${x((catLabel[p.cat]||p.cat)+(p.note?" — "+p.note:""))}</description>`
+      +`<Point><coordinates>${p.lng},${p.lat},0</coordinates></Point></Placemark>`).join("\n");
+    const kml=`<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>`
+      +`<name>SF Recommendations — UCSF BMI</name>\n${marks}\n</Document></kml>`;
+    downloadFile("sf-recommendations.kml", kml, "application/vnd.google-earth.kml+xml");
+  });
+
+  document.getElementById("map-hint").textContent =
+    `${locatedPlaces().length} spots on the map. Tip: import the KML into Google My Maps (Create map → Import) for your own shareable map.`;
+  const unmapped = SF_PLACES.filter(p=>p.lat==null);
+  if(unmapped.length){
+    document.getElementById("sf-unmapped").innerHTML = "Not pinned (search on Google Maps): " +
+      unmapped.map(p=>`<a href="${gmapsSearch(p.name)}" target="_blank" rel="noopener">${esc(p.name)}</a>`).join(", ") + ".";
+  }
+
+  /* ---------- Notes from previous students ---------- */
+  const NOTES = O.NOTES || [];
+  const notesWrap = document.getElementById("notes");
+  NOTES.forEach(n=>{
+    const c=document.createElement("div"); c.className="card";
+    c.innerHTML = `<h3 style="margin:0 0 8px;font-size:16px">${esc(n.topic)}</h3>
+      <ul class="note-list">${(n.tips||[]).map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`;
+    notesWrap.appendChild(c);
+  });
+  if (O.NOTES_SOURCE) document.getElementById("notes-source").textContent = O.NOTES_SOURCE;
+
+  /* ---------- Timeline & FAQ ---------- */
+  const TL = O.TIMELINE || [];
+  const tlWrap = document.getElementById("timeline");
+  TL.forEach(t=>{
+    const it=document.createElement("div"); it.className="tl-item";
+    it.innerHTML = `<div class="tl-when">${esc(t.when)}</div><h3>${esc(t.title)}</h3>${t.desc?`<p>${esc(t.desc)}</p>`:``}`;
+    tlWrap.appendChild(it);
+  });
+  const FAQ = O.FAQ || [];
+  const faqWrap = document.getElementById("faq");
+  FAQ.forEach(f=>{
+    const d=document.createElement("details"); d.className="acc";
+    d.innerHTML = `<summary class="acc-q">${esc(f.q)}${ICON.chev}</summary><div class="acc-a">${esc(f.a)}</div>`;
+    // make summary keyboard-focusable styling work
+    faqWrap.appendChild(d);
+  });
+
+  /* ---------- Theme ---------- */
+  const root=document.documentElement, iconEl=document.getElementById("theme-icon");
+  function isDark(){ const a=root.getAttribute("data-theme"); return a?a==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches; }
+  function paint(){ iconEl.innerHTML = isDark()?ICON.sun:ICON.moon; }
+  document.getElementById("theme-toggle").addEventListener("click",()=>{ root.setAttribute("data-theme", isDark()?"light":"dark"); paint(); });
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", paint);
+  paint();
+
+  /* ---------- Init tab from hash ---------- */
+  selectTab((location.hash||"").replace("#",""), false);
+  window.addEventListener("hashchange", ()=>selectTab((location.hash||"").replace("#",""), false));
+  applyScheduleFilter();
+})();
+</script>
+</body>
+</html>
