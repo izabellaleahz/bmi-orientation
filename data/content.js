@@ -80,20 +80,20 @@ window.ORIENTATION = {
 
     //PANEL
     { date:"2026-09-04", start:"14:00", end:"15:00", track:"panel",
-      title:"Rotations 101 (tentative)", location:"Byers Hall 215", speaker:"", desc:"" },
+      title:"Rotations 101", location:"Byers Hall 215", speaker:"", desc:"" },
     { date:"2026-09-18", start:"14:00", end:"15:00", track:"panel",
       title:"Research Flash Talks", location:"Mission Hall 1105", speaker:"", desc:"" },
 
 
     // ---- BMI program events ----
     { date:"2026-09-02", start:"13:00", end:"14:00", track:"bmi",
-      title:"First Year Team Building", location:"Byers Hall 215", speaker:"", desc:"" },
+      title:"Team Building", location:"Byers Hall 215", speaker:"", desc:"" },
     { date:"2026-09-02", start:"11:00", end:"12:00", track:"bmi",
-      title:"BMI 1st-Year Orientation", location:"Byers Hall 215", speaker:"Ryan, Tony & Becca", desc:"" },
+      title:"BMI Orientation", location:"Byers Hall 215", speaker:"Ryan, Tony & Becca", desc:"" },
     { date:"2026-09-07", allDay:true, hideCal:true, track:"holiday",
       title:"Labor Day — No Formal Activities", location:"", speaker:"", desc:"University holiday." },
     { date:"2026-09-08", start:"13:00", end:"14:00", track:"bmi",
-      title:"NSF Proposal Orientation", location:"Byers Hall 215", speaker:"Ryan Hernandez", desc:"" },
+      title:"NSF-GRFP Orientation", location:"Byers Hall 215", speaker:"Ryan Hernandez", desc:"" },
     { date:"2026-09-09", start:"11:00", end:"13:00", track:"bmi",
       title:"BMI 1st-Year Community Circle", location:"Byers Hall 215", speaker:"", desc:"" },
     { date:"2026-09-11", start:"08:15", end:"16:00", track:"gepa",
