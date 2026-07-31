@@ -657,9 +657,12 @@
         const hgt=Math.max(26,(en-s)/60*HOURH-2);
         const w=100/(e._ncols||1), left=(e._col||0)*w;
         const t=trackMap[e.track]||{color:1};
+        const isThirtyMinuteLunch = e.title === "Lunch" && (en - s) === 30;
+        const timeLabel = isThirtyMinuteLunch ? `${esc(fmtTime(e.start))} · ${esc(e.title)}` : esc(fmtTime(e.start));
+        const bodyTitle = isThirtyMinuteLunch ? "" : esc(e.title);
         col+=`<div class="wk-ev" style="top:${top}px;height:${hgt}px;left:calc(${left}% + 2px);width:calc(${w}% - 4px);--tc:var(--t-${t.color});--tw:var(--t-${t.color}-wash)" title="${esc(e.title)} · ${esc(fmtTime(e.start))}${e.end?"–"+esc(fmtTime(e.end)):""}">
-          <div class="ev-t">${esc(fmtTime(e.start))}</div>
-          <div class="ev-n">${esc(e.title)}</div>
+          <div class="ev-t">${timeLabel}</div>
+          ${bodyTitle?`<div class="ev-n">${bodyTitle}</div>`:``}
           ${e.location?`<div class="ev-loc">${esc(e.location)}</div>`:``}
         </div>`;
       });
