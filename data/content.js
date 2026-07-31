@@ -32,21 +32,21 @@ window.ORIENTATION = {
   EVENTS: [
     // ---- Genomics Fundamentals (course series, taught by Sergio) ----
     { date:"2026-09-08", start:"11:00", end:"13:00", track:"course",
-      title:"Genomics Fundamentals", location:"Location TBD", speaker:"Sergio", desc:"" },
+      title:"Genomics Fundamentals", location:"Byers Hall 215", speaker:"Sergio", desc:"" },
     { date:"2026-09-09", start:"13:30", end:"15:30", track:"course",
-      title:"Genomics Fundamentals", location:"Location TBD", speaker:"Sergio", desc:"" },
+      title:"Genomics Fundamentals", location:"Byers Hall 215", speaker:"Sergio", desc:"" },
     { date:"2026-09-10", start:"11:00", end:"13:00", track:"course",
-      title:"Genomics Fundamentals", location:"Location TBD", speaker:"Sergio", desc:"" },
+      title:"Genomics Fundamentals", location:"Mission Hall 1105", speaker:"Sergio", desc:"" },
     { date:"2026-09-14", start:"11:00", end:"13:00", track:"course",
-      title:"Genomics Fundamentals", location:"Location TBD", speaker:"Sergio", desc:"" },
+      title:"Genomics Fundamentals", location:"Mission Hall 1105", speaker:"Sergio", desc:"" },
     { date:"2026-09-15", start:"11:00", end:"13:00", track:"course",
-      title:"Genomics Fundamentals", location:"Location TBD", speaker:"Sergio", desc:"" },
+      title:"Genomics Fundamentals", location:"Mission Hall 1105", speaker:"Sergio", desc:"" },
     { date:"2026-09-16", start:"12:00", end:"14:00", track:"course",
-      title:"Genomics Fundamentals", location:"Location TBD", speaker:"Sergio", desc:"" },
+      title:"Genomics Fundamentals", location:"Mission Hall 1105", speaker:"Sergio", desc:"" },
     { date:"2026-09-17", start:"11:00", end:"13:00", track:"course",
-      title:"Genomics Fundamentals", location:"Location TBD", speaker:"Sergio", desc:"" },
+      title:"Genomics Fundamentals", location:"Mission Hall 1105", speaker:"Sergio", desc:"" },
     { date:"2026-09-18", start:"11:00", end:"13:00", track:"course",
-      title:"Genomics Fundamentals", location:"Location TBD", speaker:"Sergio", desc:"" },
+      title:"Genomics Fundamentals", location:"Mission Hall 1105", speaker:"Sergio", desc:"" },
 
 
     //LUNCH
@@ -76,31 +76,31 @@ window.ORIENTATION = {
 
     // Resources (wynton, ocpd, smhw)
     { date:"2026-09-03", start:"13:00", end:"14:00", track:"resources",
-      title:"Wynton Tutorial", location:"", speaker:"Beniamin Krupkin", desc:"" },
+      title:"Wynton Tutorial", location:"Byers Hall 215", speaker:"Beniamin Krupkin", desc:"" },
 
     //PANEL
     { date:"2026-09-04", start:"14:00", end:"15:00", track:"panel",
-      title:"Rotations 101 (tentative)", location:"", speaker:"", desc:"" },
+      title:"Rotations 101 (tentative)", location:"Byers Hall 215", speaker:"", desc:"" },
     { date:"2026-09-18", start:"14:00", end:"15:00", track:"panel",
-      title:"Research Flash Talks", location:"", speaker:"", desc:"" },
+      title:"Research Flash Talks", location:"Mission Hall 1105", speaker:"", desc:"" },
 
 
     // ---- BMI program events ----
     { date:"2026-09-02", start:"13:00", end:"14:00", track:"bmi",
-      title:"First Year Team Building", location:"", speaker:"", desc:"" },
+      title:"First Year Team Building", location:"Byers Hall 215", speaker:"", desc:"" },
     { date:"2026-09-02", start:"11:00", end:"12:00", track:"bmi",
-      title:"BMI 1st-Year Orientation", location:"", speaker:"Ryan, Tony & Becca", desc:"" },
+      title:"BMI 1st-Year Orientation", location:"Byers Hall 215", speaker:"Ryan, Tony & Becca", desc:"" },
     { date:"2026-09-07", allDay:true, hideCal:true, track:"holiday",
       title:"Labor Day — No Formal Activities", location:"", speaker:"", desc:"University holiday." },
     { date:"2026-09-08", start:"13:00", end:"14:00", track:"bmi",
-      title:"NSF Proposal Orientation", location:"", speaker:"Ryan Hernandez", desc:"" },
+      title:"NSF Proposal Orientation", location:"Byers Hall 215", speaker:"Ryan Hernandez", desc:"" },
     { date:"2026-09-09", start:"11:00", end:"13:00", track:"bmi",
-      title:"BMI 1st-Year Community Circle", location:"", speaker:"", desc:"" },
+      title:"BMI 1st-Year Community Circle", location:"Byers Hall 215", speaker:"", desc:"" },
     { date:"2026-09-11", start:"08:15", end:"16:00", track:"gepa",
       title:"GEPA Orientation & First RCR Ethics Lecture", location:"", speaker:"",
       desc:"Full-day orientation." },
     { date:"2026-09-16", start:"10:00", end:"11:30", track:"bmi",
-      title:"Ethics (RCR) BMI Discussion Session", location:"", speaker:"Ryan Hernandez", desc:"" },
+      title:"Ethics (RCR) BMI Discussion Session", location:"Mission Hall 1105", speaker:"Ryan Hernandez", desc:"" },
     { date:"2026-09-24", allDay:true, track:"bmi",
       title:"Classes Officially Start", location:"", speaker:"", desc:"First day of classes." },
   ],
