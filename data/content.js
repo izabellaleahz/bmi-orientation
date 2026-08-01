@@ -22,6 +22,9 @@ window.ORIENTATION = {
   TRACKS: [
     { key: "course",   label: "Genomics Fundamentals", color: 6 },
     { key: "bmi",      label: "BMI",                   color: 7 },
+    { key: "resources",  label: "Resources",             color: 1 },
+    { key: "lunch",  label: "Lunch",             color: 5 },
+    { key: "panel",  label: "Panel",             color: 2 },
     { key: "gepa",     label: "GEPA",                  color: 4 },
     { key: "holiday",  label: "Holiday",               color: 3 },
   ],
@@ -29,36 +32,75 @@ window.ORIENTATION = {
   EVENTS: [
     // ---- Genomics Fundamentals (course series, taught by Sergio) ----
     { date:"2026-09-08", start:"11:00", end:"13:00", track:"course",
-      title:"Genomics Fundamentals", location:"Location TBD", speaker:"Sergio", desc:"" },
+      title:"Genomics Fundamentals", location:"Byers Hall 215", speaker:"Sergio", desc:"" },
     { date:"2026-09-09", start:"13:30", end:"15:30", track:"course",
-      title:"Genomics Fundamentals", location:"Location TBD", speaker:"Sergio", desc:"" },
+      title:"Genomics Fundamentals", location:"Byers Hall 215", speaker:"Sergio", desc:"" },
     { date:"2026-09-10", start:"11:00", end:"13:00", track:"course",
-      title:"Genomics Fundamentals", location:"Location TBD", speaker:"Sergio", desc:"" },
+      title:"Genomics Fundamentals", location:"Mission Hall 1105", speaker:"Sergio", desc:"" },
     { date:"2026-09-14", start:"11:00", end:"13:00", track:"course",
-      title:"Genomics Fundamentals", location:"Location TBD", speaker:"Sergio", desc:"" },
+      title:"Genomics Fundamentals", location:"Mission Hall 1105", speaker:"Sergio", desc:"" },
     { date:"2026-09-15", start:"11:00", end:"13:00", track:"course",
-      title:"Genomics Fundamentals", location:"Location TBD", speaker:"Sergio", desc:"" },
+      title:"Genomics Fundamentals", location:"Mission Hall 1105", speaker:"Sergio", desc:"" },
     { date:"2026-09-16", start:"12:00", end:"14:00", track:"course",
-      title:"Genomics Fundamentals", location:"Location TBD", speaker:"Sergio", desc:"" },
+      title:"Genomics Fundamentals", location:"Mission Hall 1105", speaker:"Sergio", desc:"" },
     { date:"2026-09-17", start:"11:00", end:"13:00", track:"course",
-      title:"Genomics Fundamentals", location:"Location TBD", speaker:"Sergio", desc:"" },
+      title:"Genomics Fundamentals", location:"Mission Hall 1105", speaker:"Sergio", desc:"" },
     { date:"2026-09-18", start:"11:00", end:"13:00", track:"course",
-      title:"Genomics Fundamentals", location:"Location TBD", speaker:"Sergio", desc:"" },
+      title:"Genomics Fundamentals", location:"Mission Hall 1105", speaker:"Sergio", desc:"" },
 
-    // ---- BMI / GEPA program events ----
+
+    //LUNCH
+    { date:"2026-09-02", start:"12:00", end:"13:00", track:"lunch",
+      title:"Lunch", location:"", speaker:"", desc:"" },
+    { date:"2026-09-03", start:"12:00", end:"13:00", track:"lunch",
+      title:"Lunch", location:"", speaker:"", desc:"" },
+    { date:"2026-09-04", start:"12:00", end:"13:00", track:"lunch",
+      title:"Lunch", location:"", speaker:"", desc:"" },
+    { date:"2026-09-08", start:"14:00", end:"15:00", track:"lunch",
+      title:"Lunch", location:"", speaker:"", desc:"" },
+    { date:"2026-09-09", start:"13:00", end:"13:30", track:"lunch",
+      title:"Lunch", location:"", speaker:"", desc:"" },
+    { date:"2026-09-10", start:"13:00", end:"14:00", track:"lunch",
+      title:"Lunch", location:"", speaker:"", desc:"" },
+    { date:"2026-09-14", start:"13:00", end:"14:00", track:"lunch",
+      title:"Lunch", location:"", speaker:"", desc:"" },
+    { date:"2026-09-15", start:"13:00", end:"14:00", track:"lunch",
+      title:"Lunch", location:"", speaker:"", desc:"" },
+    { date:"2026-09-16", start:"11:30", end:"12:00", track:"lunch",
+      title:"Lunch", location:"", speaker:"", desc:"" },
+    { date:"2026-09-17", start:"13:00", end:"14:00", track:"lunch",
+      title:"Lunch", location:"", speaker:"", desc:"" },
+    { date:"2026-09-18", start:"13:00", end:"14:00", track:"lunch",
+      title:"Lunch", location:"", speaker:"", desc:"" },
+
+
+    // Resources (wynton, ocpd, smhw)
+    { date:"2026-09-03", start:"13:00", end:"14:00", track:"resources",
+      title:"Wynton Tutorial", location:"Byers Hall 215", speaker:"Beniamin Krupkin", desc:"" },
+
+    //PANEL
+    { date:"2026-09-04", start:"14:00", end:"15:00", track:"panel",
+      title:"Rotations 101", location:"Byers Hall 215", speaker:"", desc:"" },
+    { date:"2026-09-18", start:"14:00", end:"15:00", track:"panel",
+      title:"Research Flash Talks", location:"Mission Hall 1105", speaker:"", desc:"" },
+
+
+    // ---- BMI program events ----
+    { date:"2026-09-02", start:"13:00", end:"14:00", track:"bmi",
+      title:"Team Building", location:"Byers Hall 215", speaker:"", desc:"" },
     { date:"2026-09-02", start:"11:00", end:"12:00", track:"bmi",
-      title:"BMI 1st-Year Orientation", location:"", speaker:"Ryan, Tony & Becca", desc:"" },
+      title:"BMI Orientation", location:"Byers Hall 215", speaker:"Ryan, Tony & Becca", desc:"" },
     { date:"2026-09-07", allDay:true, hideCal:true, track:"holiday",
       title:"Labor Day — No Formal Activities", location:"", speaker:"", desc:"University holiday." },
     { date:"2026-09-08", start:"13:00", end:"14:00", track:"bmi",
-      title:"NSF Proposal Orientation", location:"", speaker:"Ryan Hernandez", desc:"" },
+      title:"NSF-GRFP Orientation", location:"Byers Hall 215", speaker:"Ryan Hernandez", desc:"" },
     { date:"2026-09-09", start:"11:00", end:"13:00", track:"bmi",
-      title:"BMI 1st-Year Community Circle", location:"", speaker:"", desc:"" },
+      title:"BMI 1st-Year Community Circle", location:"Byers Hall 215", speaker:"", desc:"" },
     { date:"2026-09-11", start:"08:15", end:"16:00", track:"gepa",
       title:"GEPA Orientation & First RCR Ethics Lecture", location:"", speaker:"",
       desc:"Full-day orientation." },
     { date:"2026-09-16", start:"10:00", end:"11:30", track:"bmi",
-      title:"Ethics (RCR) BMI Discussion Session", location:"", speaker:"Ryan Hernandez", desc:"" },
+      title:"Ethics (RCR) BMI Discussion Session", location:"Mission Hall 1105", speaker:"Ryan Hernandez", desc:"" },
     { date:"2026-09-24", allDay:true, track:"bmi",
       title:"Classes Officially Start", location:"", speaker:"", desc:"First day of classes." },
   ],
@@ -325,19 +367,19 @@ window.ORIENTATION = {
   /* ---- LOGISTICS & PEOPLE ------------------------------------------- */
   // Who to ask for what. Fill in [ ] placeholders (last names, emails) before sharing.
   PEOPLE: [
-    { role:"Program Manager", name:"Becca (Rebecca)", forWhat:"Onboarding, scheduling, reimbursements, day-to-day questions", contact:"[add email]" },
-    { role:"Program Leadership", name:"Ryan", forWhat:"Academics, rotations, program questions", contact:"[add email]" },
-    { role:"Program Leadership", name:"Tony", forWhat:"Academics, rotations, program questions", contact:"[add email]" },
+    { role:"Program Manager", name:"Becca (Rebecca)", forWhat:"Onboarding, scheduling, reimbursements, day-to-day questions", contact:"rebecca.dawson2@ucsf.edu" },
+    { role:"Program Leadership", name:"Ryan", forWhat:"Academics, rotations, program questions", contact:"ryan.hernandez@ucsf.edu" },
+    { role:"Program Leadership", name:"Tony", forWhat:"Academics, rotations, program questions", contact:"tony@capralab.org" },
   ],
   // Logistics groups. type:"checklist" (default) shows checkboxes; type:"links" is a plain
   // list. Each item can be a plain string, or { text, url, info } to make it clickable with
-  // a short note underneath. Replace [add link] placeholders with real URLs.
+  // a short note underneath. Sara replaced [add link] placeholders with real URLs.
   LOGISTICS: [
     { type:"checklist", title:"Before you arrive", items:[
       { text:"Activate your UCSF email", url:"https://it.ucsf.edu", info:"Set up your UCSF email and MyAccess single sign-on through UCSF IT." },
       { text:"Join the program Slack", info:"Main day-to-day communication. [add invite link — ask Becca]" },
-      { text:"Join the Discord", info:"Student community server. [add invite link]" },
-      { text:"Get a student ID from the ID office", info:"Visit UCSF ID Card Services (Parnassus or Mission Bay). [add link / hours]" },
+      { text:"Join the Discord", info:"Student community server.", url:"https://discord.gg/2BcSRvdjB" },
+      { text:"Get a student ID from the ID office", info:"Visit UCSF ID Card Services (Parnassus or Mission Bay).", url: "https://registrar.ucsf.edu/new-students/weid" },
       { text:"Request access to Wynton", url:"https://wynton.ucsf.edu/hpc/", info:"UCSF's shared high-performance computing cluster — request an account via the Getting Started page." },
     ]},
     { type:"checklist", title:"Your first month", items:[
@@ -347,11 +389,11 @@ window.ORIENTATION = {
       { text:"Set up your first rotation", info:"Line up your first rotation PI and start date." },
     ]},
     { type:"links", title:"Benefits & perks", items:[
-      { text:"UCSF Lyft pass", info:"$10 ride discount. [add link]" },
-      { text:"Download the gym app", info:"UCSF Fitness & Recreation membership. [add link]" },
-      { text:"Bay Pass / Clipper", info:"Discounted regional transit. [add link]" },
-      { text:"Discounted sports tickets", info:"Including Giants games. [add link]" },
-      { text:"Zipcar", info:"Reduced annual membership fee. [add link]" },
+      { text:"UCSF Lyft pass", info:"$10 ride discount.", url: "https://campuslifeserviceshome.ucsf.edu/transportation/student-late-night-lyft" },
+      { text:"Download the gym app", info:"UCSF Fitness & Recreation membership.", url: "https://apps.apple.com/au/app/ucsf-fitness-and-recreation/id6738710397" },
+      { text:"Bay Pass / Clipper", info:"Discounted regional transit.", url: "https://campuslifeserviceshome.ucsf.edu/transportation/student-transit-pass" },
+      { text:"Discounted sports tickets", info:"Including Giants games.", url: "https://campuslifeserviceshome.ucsf.edu/arts-and-events/activities-sports-and-events-discounts" },
+      { text:"Zipcar", info:"Reduced annual membership fee.", url: "https://campuslifeserviceshome.ucsf.edu/transportation/get-zipcar-campus" },
     ]},
     { type:"links", title:"Key links", items:[
       { text:"UCSF IT / MyAccess", url:"https://it.ucsf.edu" },
@@ -359,7 +401,7 @@ window.ORIENTATION = {
       { text:"Student Health", url:"https://studenthealth.ucsf.edu" },
       { text:"UCSF EH&S trainings", url:"https://ehs.ucsf.edu" },
       { text:"Wynton HPC docs", url:"https://wynton.ucsf.edu/hpc/" },
-      { text:"BMI program page", info:"[add link]" },
+      { text:"BMI program page", url:"https://bmi.ucsf.edu/" },
     ]},
   ],
 
