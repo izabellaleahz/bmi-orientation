@@ -79,7 +79,7 @@ window.ORIENTATION = {
       title:"Wynton Tutorial", location:"Byers Hall 215", speaker:"Beniamin Krupkin", desc:"" },
     { date:"2026-09-14", start:"10:00", end:"11:00", track:"resources",
       title:"OCPD Orientation", location:"Mission Hall 1105", speaker:"Kyla Foster", desc:"" },
-    { date:"2026-09-04", start:"15:00", end:"16:00", track:"resources",
+    { date:"2026-09-08", start:"15:00", end:"16:00", track:"resources",
       title:"UAW 4811", location:"Byers Hall 215", speaker:"Valeria Sanchez Estrada, Faye Orcales", desc:"" },
     { date:"2026-09-15", start:"09:00", end:"10:00", track:"resources",
       title:"SMHW Orientation", location:"Mission Hall 1105", speaker:"Dr. Nicole Reinosa", desc:"" },
