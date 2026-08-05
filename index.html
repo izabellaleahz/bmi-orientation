@@ -445,7 +445,7 @@
     (CONFIG.location?`<span>📍 <b>${esc(CONFIG.location)}</b></span>`:``) +
     (CONFIG.tzLabel?`<span>🕑 All times <b>${esc(CONFIG.tzLabel)}</b></span>`:``);
   document.getElementById("foot-note").textContent =
-    `Times shown in ${CONFIG.tzLabel||"local time"}${CONFIG.timezone?` (${CONFIG.timezone})`:``}. Edit content in data/content.js; refresh seminars with scripts/refresh_seminars.py.`;
+    `Times shown in ${CONFIG.tzLabel||"local time"}${CONFIG.timezone?` (${CONFIG.timezone})`:``}. Authors: Izabella Zamora, Sara Lichtarge, and Claude`;
   document.getElementById("sched-intro").textContent =
     "The orientation runs " + (span||"over the listed days") + ". Filter by track and add any session to your calendar.";
 
