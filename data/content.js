@@ -88,7 +88,7 @@ window.ORIENTATION = {
     //PANEL
     { date:"2026-09-04", start:"14:00", end:"15:00", track:"panel",
       title:"Rotations 101", location:"Byers Hall 215", speaker:"", desc:"" },
-    { date:"2026-09-18", start:"14:00", end:"15:00", track:"panel",
+    { date:"2026-09-17", start:"14:00", end:"15:00", track:"panel",
       title:"Research Flash Talks", location:"Mission Hall 1105", speaker:"", desc:"" },
     { date:"2026-09-10", start:"14:00", end:"15:00", track:"panel",
       title:"Life at UCSF", location:"Mission Hall 1105", speaker:"", desc:"" },
@@ -116,7 +116,7 @@ window.ORIENTATION = {
       title:"UCSF Spirit (tentative)", location:"Byers Hall 215", speaker:"Sara Smith", desc:"" },
     { date:"2026-09-02", start:"10:00", end:"11:00", track:"bmi",
       title:"Welcome!", location:"Byers Hall 215", speaker:"Sara Lichtarge, Izabella Zamora", desc:"There shall be pastries :)" },
-    { date:"2026-09-18", start:"16:00", end:"18:00", track:"bmi",
+    { date:"2026-09-17", start:"16:00", end:"18:00", track:"bmi",
       title:"Ice Cream Social", location:"Quad", speaker:"", desc:"Let there be ice cream :)" },
   ],
 
