@@ -77,12 +77,18 @@ window.ORIENTATION = {
     // Resources (wynton, ocpd, smhw)
     { date:"2026-09-03", start:"13:00", end:"14:00", track:"resources",
       title:"Wynton Tutorial", location:"Byers Hall 215", speaker:"Beniamin Krupkin", desc:"" },
+    { date:"2026-09-14", start:"10:00", end:"11:00", track:"resources",
+      title:"OCPD Orientation", location:"Mission Hall 1105", speaker:"Kyla Foster", desc:"" },
+    { date:"2026-09-04", start:"11:00", end:"12:00", track:"resources",
+      title:"UAW 4811", location:"Byers Hall 215", speaker:"Valeria Sanchez Estrada", desc:"" },
 
     //PANEL
     { date:"2026-09-04", start:"14:00", end:"15:00", track:"panel",
       title:"Rotations 101", location:"Byers Hall 215", speaker:"", desc:"" },
     { date:"2026-09-18", start:"14:00", end:"15:00", track:"panel",
       title:"Research Flash Talks", location:"Mission Hall 1105", speaker:"", desc:"" },
+    { date:"2026-09-10", start:"14:00", end:"15:00", track:"panel",
+      title:"Life at UCSF", location:"Mission Hall 1105", speaker:"", desc:"" },
 
 
     // ---- BMI program events ----
@@ -103,6 +109,10 @@ window.ORIENTATION = {
       title:"Ethics (RCR) BMI Discussion Session", location:"Mission Hall 1105", speaker:"Ryan Hernandez", desc:"" },
     { date:"2026-09-24", allDay:true, track:"bmi",
       title:"Classes Officially Start", location:"", speaker:"", desc:"First day of classes." },
+    { date:"2026-09-04", start:"13:00", end:"14:00", track:"bmi",
+      title:"UCSF Spirit (tentative)", location:"Byers Hall 215", speaker:"Sara Smith", desc:"" },
+    { date:"2026-09-02", start:"10:00", end:"11:00", track:"bmi",
+      title:"Welcome!", location:"Byers Hall 215", speaker:"Sara Lichtarge, Izabella Zamora", desc:"There shall be pastries :)" },
   ],
 
   /* ---- PAST ROTATIONS ------------------------------------------------ */
