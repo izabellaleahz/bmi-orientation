@@ -92,6 +92,8 @@ window.ORIENTATION = {
       title:"Research Flash Talks", location:"Mission Hall 1105", speaker:"", desc:"" },
     { date:"2026-09-10", start:"14:00", end:"15:00", track:"panel",
       title:"Life at UCSF", location:"Mission Hall 1105", speaker:"", desc:"" },
+    { date:"2026-09-15", start:"10:00", end:"11:00", track:"panel",
+      title:"Mental Health", location:"Mission Hall 1105", speaker:"", desc:"" },
 
 
     // ---- BMI program events ----
