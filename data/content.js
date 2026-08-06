@@ -52,8 +52,8 @@ window.ORIENTATION = {
     //LUNCH
     { date:"2026-09-02", start:"12:00", end:"13:00", track:"lunch",
       title:"Lunch", location:"", speaker:"", desc:"" },
-    { date:"2026-09-03", start:"12:00", end:"13:00", track:"lunch",
-      title:"Lunch", location:"", speaker:"", desc:"" },
+    // { date:"2026-09-03", start:"12:00", end:"13:00", track:"lunch",
+    //   title:"Lunch", location:"", speaker:"", desc:"" },
     { date:"2026-09-04", start:"12:00", end:"13:00", track:"lunch",
       title:"Lunch", location:"", speaker:"", desc:"" },
     { date:"2026-09-08", start:"14:00", end:"15:00", track:"lunch",
@@ -75,8 +75,8 @@ window.ORIENTATION = {
 
 
     // Resources (wynton, ocpd, smhw)
-    { date:"2026-09-03", start:"13:00", end:"14:00", track:"resources",
-      title:"Wynton Tutorial", location:"Byers Hall 215", speaker:"Beniamin Krupkin", desc:"" },
+    // { date:"2026-09-03", start:"13:00", end:"14:00", track:"resources",
+    //   title:"Wynton Tutorial", location:"Byers Hall 215", speaker:"Beniamin Krupkin", desc:"" },
     { date:"2026-09-14", start:"10:00", end:"11:00", track:"resources",
       title:"OCPD Orientation", location:"Mission Hall 1105", speaker:"Kyla Foster", desc:"" },
     { date:"2026-09-08", start:"15:00", end:"16:00", track:"resources",
@@ -120,6 +120,8 @@ window.ORIENTATION = {
       title:"Welcome!", location:"Byers Hall 215", speaker:"Sara Lichtarge, Izabella Zamora", desc:"There shall be pastries :)" },
     { date:"2026-09-17", start:"16:00", end:"18:00", track:"bmi",
       title:"Ice Cream Social", location:"Quad", speaker:"", desc:"Let there be ice cream :)" },
+    { date:"2026-09-03", start:"09:00", end:"14:00", track:"resources",
+      title:"Tour of San Francisco", location:"Meet at the Quad", speaker:"Noah Baker", desc:"Lunch potentially provided" },
   ],
 
   /* ---- PAST ROTATIONS ------------------------------------------------ */
