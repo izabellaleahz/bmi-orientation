@@ -399,17 +399,30 @@ window.ORIENTATION = {
       { text:"Join the program Slack", info:"Main day-to-day communication. [add invite link — ask Becca]" },
       { text:"Join the Discord", info:"Student community server.", url:"https://discord.gg/2BcSRvdjB" },
       { text:"Get a student ID from the ID office", info:"Visit UCSF ID Card Services (Parnassus or Mission Bay).", url: "https://registrar.ucsf.edu/new-students/weid" },
-      { text:"Request access to Wynton", url:"https://wynton.ucsf.edu/hpc/", info:"UCSF's shared high-performance computing cluster — request an account via the Getting Started page." },
+      { text:"Request access to Wynton", url:"https://wynton.ucsf.edu/hpc/about/join.html", info:"UCSF's shared HPC cluster (you'll use it in BMI 206). Fill out the account request via \"Join the Cluster\": check \"no\" for Gladstone, list Katie Pollard as your PI, and write \"BMI206 class account\" in the comments. Accounts take ~5 business days." },
     ]},
     { type:"checklist", title:"Your first month", items:[
-      { text:"Look into CA residency", info:"Start early; get your CA driver's license before December (see the Notes tab for the full rundown)." },
+      { text:"Set up a primary care provider (UC SHIP)", url:"https://studenthealth.ucsf.edu/healthcare-services", info:"Under UC SHIP, primary care is provided through UCSF Health — call (415) 476-1281, option 1, to establish care and schedule. Do this ASAP; first appointments book out weeks in advance." },
+      { text:"Look into CA residency", info:"Start early — get your CA driver's license before December. See the \"Establishing CA residency\" checklist below." },
       { text:"NIH grant paperwork", info:"Fellowship / eRA Commons setup and any training-grant requirements. [add details / link]" },
       { text:"Registration", info:"Wait for Becca's instructions before you register." },
       { text:"Set up your first rotation", info:"Line up your first rotation PI and start date." },
     ]},
+    { type:"checklist", title:"Establishing CA residency", items:[
+      { text:"Read the residency requirements", url:"https://registrar.ucsf.edu/registration/residency", info:"Start early — it takes longer than you think. All documents are due by the mid-July deadline for Fall." },
+      { text:"Complete the residency form (SLR 416)", url:"https://registrar.ucsf.edu/document/416-pdf", info:"Fill it out and email it, with all supporting documents below, to Registrar@ucsf.edu." },
+      { text:"Most recent income tax returns", info:"Full copy — you may redact anything you consider sensitive." },
+      { text:"CA driver's license or state ID", info:"Get your CA license before December. (The Daly City DMV is reportedly smoother than SF; bring several forms of ID.)" },
+      { text:"CA voter registration (with registration date)", info:"Email sfvote@sfgov.org to request a Voter Notification Card (~2 weeks) or pick one up at City Hall." },
+      { text:"CA vehicle registration", info:"If applicable." },
+      { text:"Bank statement showing your CA address", info:"Must show your CA domicile as your permanent address." },
+      { text:"Lease agreements", info:"For both the previous year and the upcoming year." },
+    ]},
     { type:"links", title:"Benefits & perks", items:[
       { text:"UCSF Lyft pass", info:"$10 ride discount.", url: "https://campuslifeserviceshome.ucsf.edu/transportation/student-late-night-lyft" },
       { text:"Download the gym app", info:"UCSF Fitness & Recreation membership.", url: "https://apps.apple.com/au/app/ucsf-fitness-and-recreation/id6738710397" },
+      { text:"UCSF Rec Pass (free gym)", info:"Bakar (Mission Bay) & Millberry gyms are free for students on CC/Student Services fees — just register your UCSF ID badge at the front desk.", url: "https://campuslifeserviceshome.ucsf.edu/fitnessrecreation/student-resources" },
+      { text:"UCSF shuttles", info:"Free campus shuttles (Mission Bay ↔ Parnassus and more); track live times at m.ucsf.edu/shuttle.", url: "https://campuslifeserviceshome.ucsf.edu/transportation/shuttle-stop-maps-photos" },
       { text:"Bay Pass / Clipper", info:"Discounted regional transit.", url: "https://campuslifeserviceshome.ucsf.edu/transportation/student-transit-pass" },
       { text:"Discounted sports tickets", info:"Including Giants games.", url: "https://campuslifeserviceshome.ucsf.edu/arts-and-events/activities-sports-and-events-discounts" },
       { text:"Zipcar", info:"Reduced annual membership fee.", url: "https://campuslifeserviceshome.ucsf.edu/transportation/get-zipcar-campus" },
@@ -421,6 +434,44 @@ window.ORIENTATION = {
       { text:"UCSF EH&S trainings", url:"https://ehs.ucsf.edu" },
       { text:"Wynton HPC docs", url:"https://wynton.ucsf.edu/hpc/" },
       { text:"BMI program page", url:"https://bmi.ucsf.edu/" },
+    ]},
+  ],
+
+  /* ---- CURRICULUM (first two years) --------------------------------- */
+  // Course commitments across years 1–2, from the BMI PhD requirements
+  // (https://bmi.ucsf.edu/degree-program/curriculum). Course numbers/quarters
+  // shift year to year — confirm against the UCSF catalog + Becca's guidance.
+  CURRICULUM_SOURCE: "https://bmi.ucsf.edu/degree-program/curriculum",
+  CURRICULUM: [
+    { group:"Year 1 · Fall", items:[
+      { name:"BMI 206 — Introduction to Biostatistics", note:"Core statistics course." },
+      { name:"Genomics Fundamentals", note:"Taught by Sergio — all course material is covered during orientation." },
+      { name:"Grad 202 — Race & Racism in Science", note:"Weekly." },
+      { name:"BMI 221 — Rotation 1", note:"First of three 10-week rotations (3 units each)." },
+      { name:"Grad 214 — RCR Ethics", note:"Responsible Conduct of Research; spans Fall–Spring. Meets monthly, alternating Zoom and in person at Mission Bay." },
+    ]},
+    { group:"Year 1 · Winter", items:[
+      { name:"BMI 203 — Algorithms", note:"Core algorithms course." },
+      { name:"Elective (choose one)", note:"Deep Learning for the Biological Sciences, Bioregulation, or Systems Pharmacology (PSPG 245B)." },
+      { name:"BMI 221 — Rotation 2", note:"" },
+      { name:"Grad 214 — RCR Ethics (continued)", note:"Monthly, alternating Zoom and Mission Bay." },
+    ]},
+    { group:"Year 1 · Spring", items:[
+      { name:"Three mini-courses", note:"Two-week electives to diversify your training — pick 3." },
+      { name:"BMI 221 — Rotation 3", note:"" },
+      { name:"Grad 214 — RCR Ethics (concluded)", note:"Monthly, alternating Zoom and Mission Bay." },
+    ]},
+    { group:"Weekly / every quarter (Years 1–2)", items:[
+      { name:"BMI 223 — QBC Journal Club", note:"Weekly, 1 unit, every quarter throughout your first two years. You present once a year." },
+      { name:"BMI 222 — Student Research Talks (RIPS)", note:"Weekly student research-update talks. You give one every year, starting your second year." },
+      { name:"BMI 220 — Seminars", note:"Optional — but genuinely cool talks." },
+      { name:"QBC Retreat", note:"Mandatory Fall attendance." },
+    ]},
+    { group:"Year 2", items:[
+      { name:"Oral qualifying examination", note:"Completed by end of Winter. You must pass all core courses with a B or higher to sit for it." },
+      { name:"BMI 250 — Thesis research", note:"1–8 units every quarter, in your thesis lab." },
+      { name:"Teaching requirement", note:"One quarter as a TA in BMI or the School of Pharmacy." },
+      { name:"BMI 223 — QBC Journal Club (continues)", note:"" },
     ]},
   ],
 

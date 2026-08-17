@@ -223,7 +223,7 @@
   .sem-table td.talk { font-weight: 600; color: var(--ink); }
   .sem-table td .blank { color: var(--muted); }
   /* Talk/seminar resource directory */
-  #sem-directory { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 22px 28px; align-items: start; margin: 4px 0 8px; }
+  #sem-directory, #curriculum { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 22px 28px; align-items: start; margin: 4px 0 8px; }
   .sem-dir-group { min-width: 0; }
   .sem-dir-h { font-size: 12px; text-transform: uppercase; letter-spacing: .07em; color: var(--accent-ink); font-weight: 700; margin: 0 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--line); }
   .sem-dir-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
@@ -331,6 +331,10 @@
     <input type="search" id="rot-search" class="search-input" placeholder="Search students, PIs, or thesis labs…" aria-label="Search rotations" autocomplete="off" />
     <p class="rot-count" id="rot-count"></p>
     <div class="table-scroll"><table class="rot-table" id="rot-table"></table></div>
+
+    <h2 class="section-head">First- &amp; second-year curriculum</h2>
+    <p class="panel-intro" style="margin-top:2px">Your class commitments across the first two years — stats, algorithms, electives, the weekly journal club, and ethics. From the BMI PhD requirements; <span id="cur-source"></span> confirm exact course numbers and quarters against the UCSF catalog, since offerings shift year to year.</p>
+    <div id="curriculum"></div>
   </section>
 
   <section class="panel" id="panel-seminars" role="tabpanel">
@@ -902,6 +906,22 @@
     notesWrap.appendChild(c);
   });
   if (O.NOTES_SOURCE) document.getElementById("notes-source").textContent = O.NOTES_SOURCE;
+
+  /* ---------- Curriculum (first two years) ---------- */
+  const CUR = O.CURRICULUM || [];
+  const curWrap = document.getElementById("curriculum");
+  if (curWrap) curWrap.innerHTML = CUR.map(g=>`
+    <div class="sem-dir-group">
+      <h3 class="sem-dir-h">${esc(g.group)}</h3>
+      <ul class="sem-dir-list">
+        ${g.items.map(it=>`<li>
+          ${it.url?`<a class="res" href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.name)}</a>`:`<span class="res">${esc(it.name)}</span>`}
+          ${it.note?`<span class="sem-dir-note">${esc(it.note)}</span>`:``}
+        </li>`).join("")}
+      </ul>
+    </div>`).join("");
+  const curSrc = document.getElementById("cur-source");
+  if (curSrc && O.CURRICULUM_SOURCE) curSrc.innerHTML = `<a href="${esc(O.CURRICULUM_SOURCE)}" target="_blank" rel="noopener">see the full requirements</a> and`;
 
   /* ---------- Timeline & FAQ ---------- */
   const TL = O.TIMELINE || [];
