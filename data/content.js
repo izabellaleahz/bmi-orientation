@@ -75,14 +75,16 @@ window.ORIENTATION = {
 
 
     // Resources (wynton, ocpd, smhw)
-    // { date:"2026-09-03", start:"13:00", end:"14:00", track:"resources",
-    //   title:"Wynton Tutorial", location:"Byers Hall 215", speaker:"Beniamin Krupkin", desc:"" },
+    { date:"2026-09-09", start:"15:30", end:"16:30", track:"resources",
+      title:"Wynton Tutorial", location:"Byers Hall 215", speaker:"Beniamin Krupkin", desc:"" },
     { date:"2026-09-14", start:"10:00", end:"11:00", track:"resources",
       title:"OCPD Orientation", location:"Mission Hall 1105", speaker:"Kyla Foster", desc:"" },
     { date:"2026-09-08", start:"15:00", end:"16:00", track:"resources",
       title:"UAW 4811", location:"Byers Hall 215", speaker:"Alex Ho, Faye Orcales", desc:"" },
     { date:"2026-09-15", start:"09:00", end:"10:00", track:"resources",
       title:"SMHW Orientation", location:"Mission Hall 1105", speaker:"Dr. Nicole Reinosa", desc:"" },
+    { date:"2026-09-04", start:"11:30", end:"12:00", track:"resources",
+      title:"UCSF Gym Tour", location:"", speaker:"", desc:"" },
 
 
     //PANEL
