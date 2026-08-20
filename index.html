@@ -172,6 +172,10 @@
   .wk-ev .ev-t { font-size: 11px; color: var(--tc); font-weight: 600; font-variant-numeric: tabular-nums; }
   .wk-ev .ev-n { font-size: 12px; font-weight: 600; line-height: 1.2; color: var(--ink); }
   .wk-ev .ev-loc { font-size: 10.5px; color: var(--muted); }
+  .wk-ev.compact { padding: 3px 6px; }
+  .wk-ev.compact .ev-line { display: flex; align-items: baseline; gap: 5px; min-width: 0; overflow: hidden; white-space: nowrap; line-height: 1.25; }
+  .wk-ev.compact .ev-t { font-size: 10px; flex: none; }
+  .wk-ev.compact .ev-n { font-size: 11px; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
   .wk-empty { color: var(--muted); padding: 30px 4px; }
 
   /* SF interactive map */
@@ -596,7 +600,7 @@
 
   /* ---------- Week calendar view ---------- */
   let currentView = "week";
-  const HOURH = 56;
+  const HOURH = 62;
   const weekStarts = [...new Set(dates.map(d => isoOf(mondayOf(d))))].sort();
   let weekIdx = 0;
 
@@ -661,13 +665,15 @@
         const hgt=Math.max(26,(en-s)/60*HOURH-2);
         const w=100/(e._ncols||1), left=(e._col||0)*w;
         const t=trackMap[e.track]||{color:1};
-        const isThirtyMinuteLunch = e.title === "Lunch" && (en - s) === 30;
-        const timeLabel = isThirtyMinuteLunch ? `${esc(fmtTime(e.start))} · ${esc(e.title)}` : esc(fmtTime(e.start));
-        const bodyTitle = isThirtyMinuteLunch ? "" : esc(e.title);
-        col+=`<div class="wk-ev" style="top:${top}px;height:${hgt}px;left:calc(${left}% + 2px);width:calc(${w}% - 4px);--tc:var(--t-${t.color});--tw:var(--t-${t.color}-wash)" title="${esc(e.title)} · ${esc(fmtTime(e.start))}${e.end?"–"+esc(fmtTime(e.end)):""}">
-          <div class="ev-t">${timeLabel}</div>
-          ${bodyTitle?`<div class="ev-n">${bodyTitle}</div>`:``}
-          ${e.location?`<div class="ev-loc">${esc(e.location)}</div>`:``}
+        const isShort = (en - s) <= 30;
+        const tip = `${esc(e.title)} · ${esc(fmtTime(e.start))}${e.end?"–"+esc(fmtTime(e.end)):""}${e.location?" · "+esc(e.location):""}`;
+        const inner = isShort
+          ? `<div class="ev-line"><span class="ev-t">${esc(fmtTime(e.start))}</span><span class="ev-n">${esc(e.title)}</span></div>`
+          : `<div class="ev-t">${esc(fmtTime(e.start))}</div>
+          <div class="ev-n">${esc(e.title)}</div>
+          ${e.location?`<div class="ev-loc">${esc(e.location)}</div>`:``}`;
+        col+=`<div class="wk-ev${isShort?" compact":""}" style="top:${top}px;height:${hgt}px;left:calc(${left}% + 2px);width:calc(${w}% - 4px);--tc:var(--t-${t.color});--tw:var(--t-${t.color}-wash)" title="${tip}">
+          ${inner}
         </div>`;
       });
       col+=`</div>`;
